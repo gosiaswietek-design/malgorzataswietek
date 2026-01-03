@@ -1,358 +1,279 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kamienie Mealowe – Małgorzata Świętek</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kamienie Mealowe - Małgorzata Świętek</title>
+  
   <style>
-    :root {
-      --bg: #fffae9;
-      --primary: #B91a1a;
-      --text: #5e5226;
-      --card: #ffffff;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    /* ============ GLOBAL ============ */
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #fffae9;
+      color: #5e5226;
       line-height: 1.6;
     }
 
-    section {
-      padding: 80px 20px;
-      max-width: 1100px;
-      margin: auto;
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
     h1, h2, h3 {
-      color: var(--primary);
+      margin: 0;
     }
 
-    /* HERO */
+    /* ============ HERO ============ */
     .hero {
-      min-height: 90vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      height: 90vh;
       text-align: center;
+      background: url('assets/img/logo-tlo.png') center/contain no-repeat;
     }
 
     .hero h1 {
-      font-size: 64px;
-      letter-spacing: 2px;
-    }
-
-    .hero p {
-      font-size: 22px;
-      margin-top: 10px;
-    }
-
-    /* ABOUT */
-    .about {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .about img {
-      width: 100%;
-      border-radius: 16px;
-    }
-
-    /* TRANSFORMATIONS */
-    .transformations {
-      text-align: center;
-    }
-
-    .transformation-card {
-      margin-top: 40px;
-    }
-
-    .transformation-card img {
-      width: 45%;
-      border-radius: 12px;
-      margin: 10px;
-    }
-
-    /* OFFERS */
-    .offers {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
-
-    .card {
-      background: var(--card);
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    }
-
-    .card h3 {
+      font-size: 48px;
+      color: #B91a1a;
       margin-bottom: 10px;
     }
 
-    /* CONTACT */
-    .contact {
+    .hero h2 {
+      font-size: 32px;
+      color: #5e5226;
+    }
+
+    /* ============ ABOUT / KIM JESTEM ============ */
+    .about {
+      padding: 50px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .about-content {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 40px;
+    }
+
+    .about-image {
+      flex: 1;
+      max-width: 600px; /* duże zdjęcie */
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    .about-text h2 {
+      color: #B91a1a;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .about-text p {
+      font-size: 18px;
+      color: #5e5226;
+      text-align: left;
+    }
+
+    /* ============ TRANSFORMACJE / KLAUDIA ============ */
+    .transformacje {
+      padding: 50px 20px;
+      max-width: 1100px;
+      margin: auto;
       text-align: center;
     }
 
-    .contact a {
+    .transformacje h2 {
+      color: #B91a1a;
+      margin-bottom: 30px;
+    }
+
+    .transformacje-gallery {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .transformacja-item {
+      flex: 0 0 auto;
+      width: 200px;
+      max-width: 200px;
+    }
+
+    .transformacja-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    /* ============ OFERTY ============ */
+    .oferty {
+      padding: 50px 20px;
+      max-width: 1100px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .oferta-item {
+      background-color: #fff8e1;
+      border: 2px solid #B91a1a;
+      border-radius: 16px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 400px;
+    }
+
+    .oferta-item h3 {
+      color: #B91a1a;
+      margin-bottom: 10px;
+    }
+
+    .oferta-item p {
+      color: #5e5226;
+    }
+
+    /* ============ KONTAKT ============ */
+    .kontakt {
+      padding: 50px 20px;
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .kontakt h2 {
+      color: #B91a1a;
+      margin-bottom: 20px;
+    }
+
+    .kontakt a.button {
       display: inline-block;
-      margin-top: 10px;
-      color: var(--primary);
-      font-weight: 600;
-      text-decoration: none;
+      background-color: #B91a1a;
+      color: #fffae9;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: bold;
+      margin: 10px;
+      transition: 0.3s;
     }
 
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 14px;
-      opacity: 0.7;
+    .kontakt a.button:hover {
+      background-color: #5e5226;
+    }
+
+    /* ============ RESPONSYWNOŚĆ ============ */
+    @media (max-width: 1024px) {
+      .about-content { gap: 30px; }
+      .transformacja-item { width: 180px; }
     }
 
     @media (max-width: 768px) {
-      .about {
-        grid-template-columns: 1fr;
+      .about-content {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        text-align: center;
       }
 
-      .hero h1 {
-        font-size: 42px;
-      }
+      .about-text { max-width: 100%; }
+      .about-image img { max-width: 90%; }
 
-      .transformation-card img {
-        width: 100%;
+      .transformacja-item {
+        width: 45%;
+        margin: 10px auto;
       }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 36px; }
+      .hero h2 { font-size: 24px; }
+      .about-text p { font-size: 16px; }
+      .transformacja-item { width: 80%; }
     }
   </style>
 </head>
 
 <body>
-
   <!-- HERO -->
   <section class="hero">
     <h1>KAMIENIE MEALOWE</h1>
-    <p>Małgorzata Świętek</p>
+    <h2>Małgorzata Świętek</h2>
   </section>
 
-<!-- ABOUT SECTION -->
-<section class="about">
-  <div class="about-content">
-    <!-- ZDJĘCIE PO LEWEJ -->
-    <div class="about-image">
-      <img src="assets/img/moje-zdjecie.jpg" alt="Małgorzata Świętek">
-    </div>
-
-    <!-- TEKST PO PRAWEJ -->
-    <div class="about-text">
-      <h2>KIM JESTEM?</h2>
-      <p>
-        Jestem studentką dietetyki i trenerem personalnym.<br><br>
-        Mam podejście, które opiera się na budowaniu zdrowych nawyków
-        bez presji i skrajności.<br><br>
-        Jeśli jesteś zainteresowana/y – pomogę Ci zmienić także Twoje nawyki.
-        W prosty, logiczny i dopasowany do Twojego stylu życia sposób.
-      </p>
-    </div>
-  </div>
-</section>
-
-<style>
-.about {
-  padding: 50px 20px;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.about-content {
-  display: flex;
-  flex-direction: row; /* zdjęcie po lewej, tekst po prawej */
-  align-items: flex-start;
-  gap: 40px;
-}
-
-.about-image {
-  flex: 1; /* zajmuje prawie połowę szerokości */
-}
-
-.about-image img {
-  width: 100%;
-  height: auto;
-  border-radius: 16px;
-}
-
-.about-text {
-  flex: 1; /* reszta dla tekstu */
-}
-
-.about-text h2 {
-  color: #B91a1a;
-  margin-bottom: 20px;
-  text-align: left;
-}
-
-.about-text p {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #5e5226;
-  text-align: left;
-}
-
-/* RESPONSYWNOŚĆ */
-@media (max-width: 1024px) {
-  .about-content {
-    gap: 30px;
-  }
-}
-
-@media (max-width: 768px) {
-  .about-content {
-    flex-direction: column; /* zdjęcie nad tekstem */
-    gap: 20px;
-    align-items: center;
-  }
-
-  .about-text {
-    text-align: center;
-    max-width: 100%;
-  }
-
-  .about-image img {
-    max-width: 90%; /* zdjęcie mniejsze na mobile */
-  }
-}
-
-@media (max-width: 480px) {
-  .about-text p {
-    font-size: 16px;
-    line-height: 1.5;
-  }
-}
-
-
-/* TYKO TEKST PO PRAWEJ */
-.about-text h2 {
-  color: #B91a1a;
-  margin-bottom: 20px;
-  text-align: left;
-}
-
-.about-text p {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #5e5226;
-  text-align: left;
-}
-
-/* RESPONSYWNOŚĆ */
-@media (max-width: 768px) {
-  .about-content {
-    flex-direction: column; /* zdjęcie nad tekstem */
-    gap: 20px;
-    align-items: center;
-  }
-
-  .about-text {
-    text-align: center;
-    max-width: 100%;
-  }
-
-  .about-image img {
-    max-width: 200px;
-  }
-}
-
-@media (max-width: 480px) {
-  .about-text p {
-    font-size: 16px;
-    line-height: 1.5;
-  }
-}
-</style>
-
-
-
-
-
- <!-- TRANSFORMACJE -->
-<section class="transformacje">
-  <h2>Pomogłam już kilku osobom, jedną z nich jest Klaudia:</h2>
-  <div class="transformacje-gallery">
-    <div class="transformacja-item">
-      <img src="assets/img/klaudia-przed.jpg" alt="Klaudia przed">
-    </div>
-    <div class="transformacja-item">
-      <img src="assets/img/klaudia-po.jpg" alt="Klaudia po">
-    </div>
-  </div>
-</section>
-
-
-  <!-- OFFERS -->
-  <section>
-    <h2>CO MOGĘ CI ZAOFEROWAĆ?</h2>
-
-    <div class="offers">
-      <div class="card">
-        <h3>OFERTA 1</h3>
-        <p>Poradnik żywieniowy (ebook) + indywidualnie dobrane kalorie i makroskładniki<br><strong>129 zł</strong></p>
+  <!-- KIM JESTEM -->
+  <section class="about">
+    <div class="about-content">
+      <div class="about-image">
+        <img src="assets/img/moje-zdjecie.jpg" alt="Małgorzata Świętek">
       </div>
-
-      <div class="card">
-        <h3>OFERTA 2</h3>
-        <p>Spersonalizowany plan treningowy<br><strong>149 zł</strong></p>
-      </div>
-
-      <div class="card">
-        <h3>OFERTA 3 – BASIC</h3>
-        <p>Poradnik + plan treningowy + stały kontakt<br><strong>249 zł / miesiąc</strong></p>
-      </div>
-
-      <div class="card">
-        <h3>OFERTA 4 – FULL</h3>
-        <p>Poradnik + plan treningowy + stały kontakt + jadłospis 7 dni<br><strong>299 zł / miesiąc</strong></p>
-      </div>
-
-      <div class="card">
-        <h3>TWOJA PRZEMIANA W 90 DNI</h3>
-        <p>3-miesięczna współpraca FULL<br><strong>799 zł / 3 miesiące</strong></p>
+      <div class="about-text">
+        <h2>KIM JESTEM?</h2>
+        <p>
+          Jestem studentką dietetyki i trenerem personalnym.<br><br>
+          Mam podejście, które opiera się na budowaniu zdrowych nawyków
+          bez presji i skrajności.<br><br>
+          Jeśli jesteś zainteresowana/y – pomogę Ci zmienić także Twoje nawyki.
+          W prosty, logiczny i dopasowany do Twojego stylu życia sposób.
+        </p>
       </div>
     </div>
   </section>
-\
-  
-<!-- CONTACT -->
-<section class="contact">
-  <h2>Chcesz zacząć?</h2>
-  <p>Napisz do mnie:</p>
 
-  <a href="https://instagram.com/kamieniemealowe" target="_blank" class="btn">
-    Instagram: @kamieniemealowe
-  </a>
+  <!-- TRANSFORMACJE -->
+  <section class="transformacje">
+    <h2>Pomogłam już kilku osobom, jedna z nich to Klaudia:</h2>
+    <div class="transformacje-gallery">
+      <div class="transformacja-item">
+        <img src="assets/img/klaudia-przed.jpg" alt="Klaudia przed">
+      </div>
+      <div class="transformacja-item">
+        <img src="assets/img/klaudia-po.jpg" alt="Klaudia po">
+      </div>
+    </div>
+  </section>
 
-  <p style="margin-top: 30px;">Lub wypełnij formularz zgłoszeniowy:</p>
+  <!-- OFERTY -->
+  <section class="oferty">
+    <div class="oferta-item">
+      <h3>Oferta 1</h3>
+      <p>Poradnik żywieniowy (ebook) + indywidualnie dobrane kalorie i makroskładniki - 129zł</p>
+    </div>
+    <div class="oferta-item">
+      <h3>Oferta 2</h3>
+      <p>Spersonalizowany plan treningowy - 149zł</p>
+    </div>
+    <div class="oferta-item">
+      <h3>Oferta 3 - BASIC</h3>
+      <p>Poradnik żywieniowy + plan treningowy + stały kontakt - 249zł/miesiąc</p>
+    </div>
+    <div class="oferta-item">
+      <h3>Oferta 4 - FULL</h3>
+      <p>Poradnik żywieniowy + plan treningowy + stały kontakt + jadłospis 7dni - 299zł/miesiąc</p>
+    </div>
+    <div class="oferta-item">
+      <h3>Oferta 5 - 90 dni</h3>
+      <p>3-miesięczna współpraca FULL PAKIET - 799zł/3 miesiące (płatność z góry)</p>
+    </div>
+  </section>
 
-  <a href="https://forms.gle/XAVNZ3bM5Mkewga69" target="_blank" class="btn">
-    Wypełnij formularz
-  </a>
-</section>
-
-
-  <footer>
-    © 2026 Małgorzata Świętek | Kamienie Mealowe
-  </footer>
-
+  <!-- KONTAKT -->
+  <section class="kontakt">
+    <h2>Chcesz zacząć?</h2>
+    <a class="button" href="https://www.instagram.com/kameiniemealowe" target="_blank">@kameiniemealowe</a>
+    <a class="button" href="https://forms.gle/XAVNZ3bM5Mkewga69" target="_blank">Wypełnij formularz</a>
+  </section>
 </body>
 </html>
