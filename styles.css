@@ -13,11 +13,11 @@ h1,h2,h3 { margin: 0; }
 /* ===== LOGO w prawym dolnym rogu ===== */
 .logo-fixed {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 80px;
+  bottom: 22px;
+  right: 22px;
+  width: 88px;
   height: auto;
-  opacity: 0.7;
+  opacity: 0.8;
   z-index: 1000;
 }
 
@@ -29,6 +29,7 @@ h1,h2,h3 { margin: 0; }
   text-align: center;
   padding-top: 30px;
   padding-bottom: 30px;
+  background: linear-gradient(180deg, #fffae9 0%, #fff8e1 100%);
 }
 
 .hero h1 {
@@ -47,6 +48,9 @@ h1,h2,h3 { margin: 0; }
   padding: 50px 20px;
   max-width: 1200px;
   margin: auto;
+  background-color: #fff8e1;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
 
 .about-content {
@@ -65,6 +69,7 @@ h1,h2,h3 { margin: 0; }
   width: 100%;
   height: auto;
   border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 .about-text {
@@ -78,7 +83,7 @@ h1,h2,h3 { margin: 0; }
 }
 
 .about-text p {
-  font-size: 20px; /* większa czcionka */
+  font-size: 20px;
   color: #5e5226;
   text-align: left;
 }
@@ -89,11 +94,14 @@ h1,h2,h3 { margin: 0; }
   max-width: 1100px;
   margin: auto;
   text-align: center;
+  background-color: #fffae9;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
 
 .transformacje h2 { 
   color: #B91a1a; 
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .transformacje h3 {
@@ -110,8 +118,8 @@ h1,h2,h3 { margin: 0; }
 
 .transformacja-item {
   flex: 0 0 auto;
-  width: 180px; /* większe zdjęcia Klaudii */
-  max-width: 180px;
+  width: 200px; /* lekko większe zdjęcia */
+  max-width: 200px;
 }
 
 .transformacja-item img {
@@ -119,6 +127,7 @@ h1,h2,h3 { margin: 0; }
   height: auto;
   border-radius: 12px;
   object-fit: cover;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
 }
 
 /* ===== OFERTY ===== */
@@ -127,24 +136,31 @@ h1,h2,h3 { margin: 0; }
   max-width: 1100px;
   margin: auto;
   text-align: center;
+  background-color: #fff8e1;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
 
 .oferta-item {
-  background-color: #fff8e1;
+  background-color: #fffae9;
   border: 2px solid #B91a1a;
   border-radius: 16px;
   padding: 25px;
   margin: 20px auto;
   max-width: 400px;
-  font-size: 18px; /* większa czcionka */
+  font-size: 18px;
   line-height: 1.5;
+  transition: transform 0.3s;
 }
 
 .oferta-item h3 { color: #B91a1a; margin-bottom: 10px; }
 .oferta-item p { color: #5e5226; }
-
-/* wymuszamy nowe linie przy cenach */
 .oferta-item p br { line-height: 2; }
+
+/* efekt hover */
+.oferta-item:hover {
+  transform: translateY(-5px);
+}
 
 /* ===== KONTAKT ===== */
 .kontakt {
