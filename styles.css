@@ -158,6 +158,48 @@ body {
 }
 </style>
 
+.transformacje {
+  padding: 50px 20px;
+  max-width: 1100px;
+  margin: auto;
+  text-align: center;
+}
+
+.transformacje h2 {
+  color: #B91a1a;
+  margin-bottom: 30px;
+}
+
+.transformacje-gallery {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap; /* na mobile przechodzi pod siebie */
+}
+
+.transformacja-item {
+  flex: 1 1 45%; /* każda po ~45% szerokości na desktopie */
+  max-width: 300px; /* ograniczenie szerokości zdjęcia */
+}
+
+.transformacja-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+/* RESPONSYWNOŚĆ */
+@media (max-width: 768px) {
+  .transformacja-item {
+    flex: 1 1 100%; /* jedno pod drugim */
+    max-width: 80%;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+}
+
+
 
 /* RESPONSYWNOŚĆ */
 @media (max-width: 768px) {
