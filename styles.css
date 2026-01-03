@@ -21,7 +21,7 @@ body::before {
   background-image: url('assets/img/logo-tlo.png');
   background-size: contain;
   background-repeat: no-repeat;
-  opacity: 0.05;        /* półprzezroczystość */
+  opacity: 0.25;        /* półprzezroczystość */
   z-index: -1;           /* za całą treścią */
 }
 
