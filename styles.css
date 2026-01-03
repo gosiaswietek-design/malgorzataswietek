@@ -1,21 +1,38 @@
 /* ===== GLOBAL ===== */
+/* Logo w tle całej strony, pod wszystkim */
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
-  background-color: #fffae9;
   color: #5e5226;
-  position: relative;
+  line-height: 1.6;
   min-height: 100vh;
-
-  /* Logo w tle całej strony */
-  background-image: url('assets/img/logo-tlo.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 50%;
-  background-attachment: fixed;
-  mix-blend-mode: lighten; /* lub overlay, screen – testuj, co wygląda najlepiej */
-  opacity: 0.15; /* półprzezroczystość */
+  position: relative;
+  background-color: transparent; /* ważne, żeby logo było widoczne */
 }
+
+body::before {
+  content: '';
+  position: fixed;         /* logo stoi w miejscu przy scrollu */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: auto;
+  background-image: url('assets/img/logo-tlo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.1;            /* półprzezroczyste */
+  z-index: -1;              /* pod wszystkimi elementami */
+  pointer-events: none;     /* nie blokuje kliknięć */
+}
+
+/* Jeśli zdjęcia w sekcjach mają białe tło, lekko przezroczyste */
+.about-image img,
+.transformacja-item img {
+  opacity: 0.95; /* 0.9–0.95 pozwala logo trochę prześwitywać */
+}
+
+/* Jeśli chcesz, żeby tekst był nadal czytelny, nie trzeba nic zmieniać */
 
 
 a { text-decoration: none; color: inherit; }
