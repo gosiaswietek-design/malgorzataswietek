@@ -1,9 +1,17 @@
+/* ===== COLOR VARIABLES ===== */
+:root {
+  --bg-primary: #FFFAE9;
+  --bg-secondary: #F5E6D3;
+  --fg-primary: #5E5226;
+  --accent: #B91A1A;
+}
+
 /* ===== GLOBAL ===== */
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
-  background-color: #fffae9;
-  color: #5e5226;
+  background-color: var(--bg-primary);
+  color: var(--fg-primary);
   line-height: 1.6;
   position: relative;
   overflow-x: hidden;
@@ -30,24 +38,25 @@ h1,h2,h3 { margin: 0; }
   text-align: center;
   padding-top: 30px;
   padding-bottom: 30px;
-  position: relative;
+  background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-primary) 100%);
 }
 
 .hero h1 {
   font-size: 100px;
-  color: #B91a1a;
+  color: var(--accent);
   margin-bottom: 15px;
 }
 
 .hero h2 {
   font-size: 60px;
-  color: #5e5226;
+  color: var(--fg-primary);
 }
 
 /* ===== LINIE DEKORACYJNE ===== */
 hr.section-divider {
-  border: 1px solid #B91a1a;
-  width: 50px;
+  border: none;
+  border-top: 3px solid var(--accent);
+  width: 70%;
   margin: 30px auto;
 }
 
@@ -56,8 +65,8 @@ hr.section-divider {
   padding: 50px 20px;
   max-width: 1200px;
   margin: auto;
-  background: linear-gradient(180deg, #fffae9 0%, #fff8e1 100%);
-  border-radius: 16px;
+  background-color: var(--bg-secondary);
+  border-radius: 24px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
 
@@ -76,7 +85,7 @@ hr.section-divider {
 .about-image img {
   width: 100%;
   height: auto;
-  border-radius: 16px;
+  border-radius: 20px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
@@ -85,14 +94,14 @@ hr.section-divider {
 }
 
 .about-text h2 {
-  color: #B91a1a;
+  color: var(--accent);
   margin-bottom: 20px;
   text-align: left;
 }
 
 .about-text p {
   font-size: 20px;
-  color: #5e5226;
+  color: var(--fg-primary);
   text-align: left;
 }
 
@@ -102,19 +111,20 @@ hr.section-divider {
   max-width: 1100px;
   margin: auto;
   text-align: center;
-  background-color: #fff8e1;
-  border-radius: 16px;
+  background-color: var(--bg-secondary);
+  border-radius: 24px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
 
 .transformacje h2 { 
-  color: #B91a1a; 
+  color: var(--accent); 
   margin-bottom: 10px;
 }
 
 .transformacje h3 {
   margin-bottom: 30px;
   font-weight: normal;
+  color: var(--fg-primary);
 }
 
 .transformacje-gallery {
@@ -133,7 +143,7 @@ hr.section-divider {
 .transformacja-item img {
   width: 100%;
   height: auto;
-  border-radius: 12px;
+  border-radius: 20px;
   object-fit: cover;
   box-shadow: 0 8px 15px rgba(0,0,0,0.1);
   transition: transform 0.3s;
@@ -144,20 +154,31 @@ hr.section-divider {
 }
 
 /* ===== OFERTY ===== */
+.oferty-title {
+  text-align: center;
+  margin: 40px 0 20px 0;
+}
+
+.oferty-title h2 {
+  color: var(--accent);
+  font-size: 36px;
+  letter-spacing: 1px;
+}
+
 .oferty {
   padding: 50px 20px;
   max-width: 1100px;
   margin: auto;
   text-align: center;
-  background: linear-gradient(180deg, #fff8e1 0%, #fffae9 100%);
-  border-radius: 16px;
+  background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-secondary) 100%);
+  border-radius: 24px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
 
 .oferta-item {
-  background-color: #fffae9;
-  border: 2px solid #B91a1a;
-  border-radius: 16px;
+  background-color: var(--bg-primary);
+  border: 2px solid var(--accent);
+  border-radius: 20px;
   padding: 25px;
   margin: 20px auto;
   max-width: 400px;
@@ -166,8 +187,8 @@ hr.section-divider {
   transition: transform 0.3s;
 }
 
-.oferta-item h3 { color: #B91a1a; margin-bottom: 10px; }
-.oferta-item p { color: #5e5226; }
+.oferta-item h3 { color: var(--accent); margin-bottom: 10px; }
+.oferta-item p { color: var(--fg-primary); }
 .oferta-item p br { line-height: 2; }
 
 .oferta-item:hover {
@@ -180,14 +201,16 @@ hr.section-divider {
   max-width: 800px;
   margin: auto;
   text-align: center;
+  background-color: var(--bg-secondary);
+  border-radius: 24px;
 }
 
-.kontakt h2 { color: #B91a1a; margin-bottom: 20px; }
+.kontakt h2 { color: var(--accent); margin-bottom: 20px; }
 
 .kontakt a.button {
   display: inline-block;
-  background-color: #B91a1a;
-  color: #fffae9;
+  background-color: var(--accent);
+  color: var(--bg-primary);
   padding: 12px 24px;
   border-radius: 12px;
   font-weight: bold;
@@ -195,7 +218,7 @@ hr.section-divider {
   transition: 0.3s;
 }
 
-.kontakt a.button:hover { background-color: #5e5226; }
+.kontakt a.button:hover { background-color: var(--fg-primary); }
 
 /* ===== RESPONSYWNOŚĆ ===== */
 @media (max-width: 1024px) {
