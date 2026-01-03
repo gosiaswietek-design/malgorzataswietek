@@ -7,45 +7,27 @@
 
   <style>
     /* ===== GLOBAL ===== */
-   /* Logo w tle całej strony, pod wszystkim */
-body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  color: #5e5226;
-  line-height: 1.6;
-  min-height: 100vh;
-  position: relative;
-  background-color: #fffae9; /* Twój kolor tła zostaje */
-}
-
-body::before {
-  content: '';
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 60%;
-  height: auto;
-  background-image: url('assets/img/logo-tlo.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  opacity: 0.05;      /* subtelne logo */
-  z-index: -1;         /* pod wszystkim */
-  pointer-events: none;
-}
-
-
-/* Jeśli zdjęcia w sekcjach mają białe tło, lekko przezroczyste */
-.about-image img,
-.transformacja-item img {
-  opacity: 0.95; /* 0.9–0.95 pozwala logo trochę prześwitywać */
-}
-
-/* Jeśli chcesz, żeby tekst był nadal czytelny, nie trzeba nic zmieniać */
-
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #fffae9;
+      color: #5e5226;
+      line-height: 1.6;
+    }
 
     a { text-decoration: none; color: inherit; }
     h1,h2,h3 { margin: 0; }
+
+    /* ===== LOGO w prawym dolnym rogu ===== */
+    .logo-fixed {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 80px;       /* wielkość logo */
+      height: auto;
+      opacity: 0.3;      /* półprzezroczyste */
+      z-index: 1000;
+    }
 
     /* ===== HERO ===== */
     .hero {
@@ -53,18 +35,18 @@ body::before {
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding-top: 40px;
-      padding-bottom: 40px;
+      padding-top: 30px;
+      padding-bottom: 30px;
     }
 
     .hero h1 {
       font-size: 100px;
       color: #B91a1a;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     .hero h2 {
-      font-size: 56px;
+      font-size: 60px;
       color: #5e5226;
     }
 
@@ -104,7 +86,7 @@ body::before {
     }
 
     .about-text p {
-      font-size: 18px;
+      font-size: 20px; /* lekko większa czcionka */
       color: #5e5226;
       text-align: left;
     }
@@ -117,7 +99,15 @@ body::before {
       text-align: center;
     }
 
-    .transformacje h2 { color: #B91a1a; margin-bottom: 30px; }
+    .transformacje h2 { 
+      color: #B91a1a; 
+      margin-bottom: 20px;
+    }
+
+    .transformacje h3 {
+      margin-bottom: 30px;
+      font-weight: normal;
+    }
 
     .transformacje-gallery {
       display: flex;
@@ -128,8 +118,8 @@ body::before {
 
     .transformacja-item {
       flex: 0 0 auto;
-      width: 150px; /* mniejsze zdjęcia */
-      max-width: 150px;
+      width: 180px; /* większe zdjęcia Klaudii */
+      max-width: 180px;
     }
 
     .transformacja-item img {
@@ -151,13 +141,18 @@ body::before {
       background-color: #fff8e1;
       border: 2px solid #B91a1a;
       border-radius: 16px;
-      padding: 20px;
+      padding: 25px;
       margin: 20px auto;
       max-width: 400px;
+      font-size: 18px; /* lekko większa czcionka */
+      line-height: 1.5;
     }
 
     .oferta-item h3 { color: #B91a1a; margin-bottom: 10px; }
     .oferta-item p { color: #5e5226; }
+
+    /* wymuszamy nowe linie przy cenach */
+    .oferta-item p br { line-height: 2; }
 
     /* ===== KONTAKT ===== */
     .kontakt {
@@ -185,7 +180,7 @@ body::before {
     /* ===== RESPONSYWNOŚĆ ===== */
     @media (max-width: 1024px) {
       .about-content { gap: 30px; }
-      .transformacja-item { width: 130px; }
+      .transformacja-item { width: 150px; }
     }
 
     @media (max-width: 768px) {
@@ -198,7 +193,7 @@ body::before {
     @media (max-width: 480px) {
       .hero h1 { font-size: 36px; }
       .hero h2 { font-size: 24px; }
-      .about-text p { font-size: 16px; }
+      .about-text p { font-size: 18px; }
       .transformacja-item { width: 80%; }
     }
   </style>
@@ -232,7 +227,8 @@ body::before {
 
   <!-- TRANSFORMACJE -->
   <section class="transformacje">
-    <h2>Pomogłam już kilku osobom, jedna z nich to Klaudia:</h2>
+    <h2>Pomogłam już kilku osobom,</h2>
+    <h3>jedna z nich to Klaudia:</h3>
     <div class="transformacje-gallery">
       <div class="transformacja-item">
         <img src="assets/img/klaudia-przed.jpg" alt="Klaudia przed">
@@ -247,23 +243,23 @@ body::before {
   <section class="oferty">
     <div class="oferta-item">
       <h3>Oferta 1</h3>
-      <p>Poradnik żywieniowy (ebook) + indywidualnie dobrane kalorie i makroskładniki - 129zł</p>
+      <p>Poradnik żywieniowy (ebook) + indywidualnie dobrane kalorie i makroskładniki<br>129zł</p>
     </div>
     <div class="oferta-item">
       <h3>Oferta 2</h3>
-      <p>Spersonalizowany plan treningowy - 149zł</p>
+      <p>Spersonalizowany plan treningowy<br>149zł</p>
     </div>
     <div class="oferta-item">
       <h3>Oferta 3 - BASIC</h3>
-      <p>Poradnik żywieniowy + plan treningowy + stały kontakt - 249zł/miesiąc</p>
+      <p>Poradnik żywieniowy + plan treningowy + stały kontakt<br>249zł/miesiąc</p>
     </div>
     <div class="oferta-item">
       <h3>Oferta 4 - FULL</h3>
-      <p>Poradnik żywieniowy + plan treningowy + stały kontakt + jadłospis 7dni - 299zł/miesiąc</p>
+      <p>Poradnik żywieniowy + plan treningowy + stały kontakt + jadłospis 7dni<br>299zł/miesiąc</p>
     </div>
     <div class="oferta-item">
       <h3>Oferta 5 - 90 dni</h3>
-      <p>3-miesięczna współpraca FULL PAKIET - 799zł/3 miesiące (płatność z góry)</p>
+      <p>3-miesięczna współpraca FULL PAKIET<br>799zł/3 miesiące (płatność z góry)</p>
     </div>
   </section>
 
@@ -273,5 +269,9 @@ body::before {
     <a class="button" href="https://www.instagram.com/kameiniemealowe" target="_blank">@kameiniemealowe</a>
     <a class="button" href="https://forms.gle/XAVNZ3bM5Mkewga69" target="_blank">Wypełnij formularz</a>
   </section>
+
+  <!-- LOGO w prawym dolnym rogu -->
+  <img src="assets/img/logo-tlo.png" alt="Logo" class="logo-fixed">
+
 </body>
 </html>
