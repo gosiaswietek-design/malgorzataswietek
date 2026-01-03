@@ -4,26 +4,19 @@ body {
   font-family: 'Arial', sans-serif;
   background-color: #fffae9;
   color: #5e5226;
-  line-height: 1.6;
   position: relative;
   min-height: 100vh;
+
+  /* Logo w tle całej strony */
+  background-image: url('assets/img/logo-tlo.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+  background-attachment: fixed;
+  mix-blend-mode: lighten; /* lub overlay, screen – testuj, co wygląda najlepiej */
+  opacity: 0.15; /* półprzezroczystość */
 }
 
-/* Półprzezroczyste logo w tle całej strony */
-body::before {
-  content: '';
-  position: fixed;      /* logo nie przesuwa się przy scrollu */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 50%;           /* szerokość logo */
-  height: auto;
-  background-image: url('assets/img/logo-tlo.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  opacity: 0.25;        /* półprzezroczystość */
-  z-index: -1;           /* za całą treścią */
-}
 
 a { text-decoration: none; color: inherit; }
 h1,h2,h3 { margin: 0; }
