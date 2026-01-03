@@ -1,90 +1,44 @@
-:root {
-  --bg: #fffae9;
-  --accent: #B91a1a;
-  --text: #5e5226;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* ============ GLOBAL ============ */
 body {
-  font-family: 'Inter', sans-serif;
-  background: var(--bg);
-  color: var(--text);
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #fffae9;
+  color: #5e5226;
   line-height: 1.6;
 }
 
-/* HERO */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1, h2, h3 {
+  margin: 0;
+}
+
+/* ============ HERO ============ */
 .hero {
-  min-height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 90vh;
   text-align: center;
-  padding: 4rem 2rem;
+  background: url('assets/img/logo-tlo.png') center/contain no-repeat; /* opcjonalnie logo w tle */
 }
 
-.brand-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 3rem;
-  color: var(--accent);
-  margin-bottom: 0.5rem;
+.hero h1 {
+  font-size: 48px;
+  color: #B91a1a;
+  margin-bottom: 10px;
 }
 
-.real-name {
-  font-size: 1.5rem;
-  font-weight: 600;
+.hero h2 {
+  font-size: 32px;
+  color: #5e5226;
 }
 
-/* SEKCJE */
-.section {
-  max-width: 900px;
-  margin: auto;
-  padding: 4rem 2rem;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.8s ease;
-}
-
-.section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.section h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-<!-- ABOUT SECTION -->
-<section class="about">
-  <div class="about-content">
-    <!-- ZDJĘCIE PO LEWEJ -->
-    <div class="about-image">
-      <img src="assets/img/moje-zdjecie.jpg" alt="Małgorzata Świętek">
-    </div>
-
-    <!-- TEKST PO PRAWEJ -->
-    <div class="about-text">
-      <h2>KIM JESTEM?</h2>
-      <p>
-        Jestem studentką dietetyki i trenerem personalnym.<br><br>
-        Mam podejście, które opiera się na budowaniu zdrowych nawyków
-        bez presji i skrajności.<br><br>
-        Jeśli jesteś zainteresowana/y – pomogę Ci zmienić także Twoje nawyki.
-        W prosty, logiczny i dopasowany do Twojego stylu życia sposób.
-      </p>
-    </div>
-  </div>
-</section>
-
-<style>
+/* ============ ABOUT / KIM JESTEM ============ */
 .about {
   padding: 50px 20px;
   max-width: 1200px;
@@ -93,24 +47,23 @@ body {
 
 .about-content {
   display: flex;
-  flex-direction: row; /* linia zdjęcie + tekst */
+  flex-direction: row;
   align-items: flex-start;
   gap: 40px;
 }
 
-/* ZDJĘCIE PO LEWEJ - duże */
 .about-image {
-  flex: 1; /* zajmuje 50% szerokości */
+  flex: 1;
 }
 
 .about-image img {
-  width: 100%; /* wypełnia kontener */
+  width: 100%;
   height: auto;
   border-radius: 16px;
 }
 
 .about-text {
-  flex: 1; /* druga połowa dla tekstu */
+  flex: 1;
 }
 
 .about-text h2 {
@@ -121,43 +74,11 @@ body {
 
 .about-text p {
   font-size: 18px;
-  line-height: 1.6;
   color: #5e5226;
   text-align: left;
 }
 
-/* RESPONSYWNOŚĆ */
-@media (max-width: 1024px) {
-  .about-content {
-    gap: 30px;
-  }
-}
-
-@media (max-width: 768px) {
-  .about-content {
-    flex-direction: column; /* zdjęcie nad tekstem */
-    gap: 20px;
-    align-items: center;
-  }
-
-  .about-image {
-    width: 90%; /* zdjęcie mniejsze na mobile */
-  }
-
-  .about-text {
-    text-align: center;
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .about-text p {
-    font-size: 16px;
-    line-height: 1.5;
-  }
-}
-</style>
-
+/* ============ TRANSFORMACJE / KLAUDIA ============ */
 .transformacje {
   padding: 50px 20px;
   max-width: 1100px;
@@ -174,152 +95,123 @@ body {
   display: flex;
   gap: 20px;
   justify-content: center;
-  flex-wrap: wrap; /* na mobile przechodzi pod siebie */
+  flex-wrap: wrap;
 }
 
 .transformacja-item {
-  flex: 1 1 45%; /* każda po ~45% szerokości na desktopie */
-  max-width: 300px; /* ograniczenie szerokości zdjęcia */
+  flex: 0 0 auto;
+  width: 200px;
+  max-width: 200px;
 }
 
 .transformacja-item img {
   width: 100%;
   height: auto;
-  border-radius: 16px;
+  border-radius: 12px;
   object-fit: cover;
 }
 
-/* RESPONSYWNOŚĆ */
-@media (max-width: 768px) {
-  .transformacja-item {
-    flex: 1 1 100%; /* jedno pod drugim */
-    max-width: 80%;
-    margin: auto;
-    margin-bottom: 20px;
-  }
-}
-
-
-
-/* RESPONSYWNOŚĆ */
-@media (max-width: 768px) {
-  .about-content {
-    flex-direction: column;
-    gap: 20px;
-    text-align: center;
-  }
-
-  .about-text h2 {
-    margin-top: 0;
-  }
-}
-
-
-
-/* PRZEMIANY */
-.transformation-card {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  margin-bottom: 3rem;
+/* ============ OFERTY ============ */
+.oferty {
+  padding: 50px 20px;
+  max-width: 1100px;
+  margin: auto;
   text-align: center;
 }
 
-.transformation-card img {
-  width: 45%;
-  max-width: 300px;
-  border-radius: 14px;
+.oferta-item {
+  background-color: #fff8e1;
+  border: 2px solid #B91a1a;
+  border-radius: 16px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 400px;
 }
 
-.transformation-card p {
-  width: 100%;
-  font-weight: 600;
-  margin-top: 0.5rem;
+.oferta-item h3 {
+  color: #B91a1a;
+  margin-bottom: 10px;
 }
 
-/* OFERTY */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
+.oferta-item p {
+  color: #5e5226;
 }
 
-.card {
-  background: #fffdf3;
-  padding: 1.5rem;
-  border-radius: 14px;
-  border: 1px solid rgba(94,82,38,0.2);
+/* ============ KONTAKT / INSTAGRAM + FORMULARZ ============ */
+.kontakt {
+  padding: 50px 20px;
+  max-width: 800px;
+  margin: auto;
   text-align: center;
 }
 
-.card h3 {
-  margin-bottom: 1rem;
-  font-family: 'Playfair Display', serif;
+.kontakt h2 {
+  color: #B91a1a;
+  margin-bottom: 20px;
 }
 
-.card p {
-  margin-bottom: 0.5rem;
-}
-
-.card .price {
-  font-weight: 600;
-  color: var(--accent);
-  margin-bottom: 1rem;
-}
-
-.card .btn {
+.kontakt a.button {
   display: inline-block;
-  background: var(--accent);
-  color: white;
-  padding: 0.6rem 1.2rem;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background 0.3s ease;
+  background-color: #B91a1a;
+  color: #fffae9;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: bold;
+  margin: 10px;
+  transition: 0.3s;
 }
 
-.card .btn:hover {
-  background: #931313;
+.kontakt a.button:hover {
+  background-color: #5e5226;
 }
 
-/* KONTAKT */
-.contact p {
-  text-align: center;
-  margin-bottom: 0.5rem;
+/* ============ RESPONSYWNOŚĆ ============ */
+@media (max-width: 1024px) {
+  .about-content {
+    gap: 30px;
+  }
+
+  .transformacja-item {
+    width: 180px;
+  }
 }
 
-.contact a {
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.contact a:hover {
-  text-decoration: underline;
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 2rem;
-  font-size: 0.85rem;
-  opacity: 0.7;
-}
-
-/* RESPONSYWNOŚĆ – mobile */
 @media (max-width: 768px) {
   .about-content {
     flex-direction: column;
     gap: 20px;
+    align-items: center;
     text-align: center;
   }
 
-  .about-text h2 {
-    margin-top: 0;
+  .about-text {
+    max-width: 100%;
   }
 
   .about-image img {
-    max-width: 200px; /* trochę mniejsze na telefonie */
+    max-width: 90%;
+  }
+
+  .transformacja-item {
+    width: 45%;
+    margin: 10px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero h2 {
+    font-size: 24px;
+  }
+
+  .about-text p {
+    font-size: 16px;
+  }
+
+  .transformacja-item {
+    width: 80%;
   }
 }
