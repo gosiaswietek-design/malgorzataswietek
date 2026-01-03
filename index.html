@@ -26,18 +26,47 @@
       text-align: center;
       padding-top: 40px;
       padding-bottom: 40px;
-      background: url('assets/img/logo-tlo.png') center/contain no-repeat;
+      position: relative;
+      overflow: hidden;
+
+      /* logo w tle */
+      background-image: url('assets/img/logo-tlo.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-attachment: fixed; /* logo nie przesuwa się przy scrollu */
     }
+
+    /* alternatywnie: subtelne logo jako pseudo-element */
+    /* 
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50%;
+      height: auto;
+      background-image: url('assets/img/logo-tlo.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.1;
+      z-index: 0;
+    }
+    */
 
     .hero h1 {
       font-size: 100px;
       color: #B91a1a;
       margin-bottom: 20px;
+      z-index: 1;
+      position: relative;
     }
 
     .hero h2 {
       font-size: 56px;
       color: #5e5226;
+      z-index: 1;
+      position: relative;
     }
 
     /* ===== KIM JESTEM ===== */
