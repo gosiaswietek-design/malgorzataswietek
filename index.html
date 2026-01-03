@@ -4,201 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kamienie Mealowe - Małgorzata Świętek</title>
-
-  <style>
-    /* ===== GLOBAL ===== */
-    body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      background-color: #fffae9;
-      color: #5e5226;
-      line-height: 1.6;
-    }
-
-    a { text-decoration: none; color: inherit; }
-    h1,h2,h3 { margin: 0; }
-
-    /* ===== LOGO w prawym dolnym rogu ===== */
-    .logo-fixed {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 80px;       /* wielkość logo */
-      height: auto;
-      opacity: 0.7;      /* półprzezroczyste */
-      z-index: 1000;
-    }
-
-    /* ===== HERO ===== */
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding-top: 30px;
-      padding-bottom: 30px;
-    }
-
-    .hero h1 {
-      font-size: 100px;
-      color: #B91a1a;
-      margin-bottom: 15px;
-    }
-
-    .hero h2 {
-      font-size: 60px;
-      color: #5e5226;
-    }
-
-    /* ===== KIM JESTEM ===== */
-    .about {
-      padding: 50px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .about-content {
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
-      gap: 40px;
-    }
-
-    .about-image {
-      flex: 1;
-      max-width: 600px;
-    }
-
-    .about-image img {
-      width: 100%;
-      height: auto;
-      border-radius: 16px;
-    }
-
-    .about-text {
-      flex: 1;
-    }
-
-    .about-text h2 {
-      color: #B91a1a;
-      margin-bottom: 20px;
-      text-align: left;
-    }
-
-    .about-text p {
-      font-size: 20px; /* lekko większa czcionka */
-      color: #5e5226;
-      text-align: left;
-    }
-
-    /* ===== TRANSFORMACJE ===== */
-    .transformacje {
-      padding: 50px 20px;
-      max-width: 1100px;
-      margin: auto;
-      text-align: center;
-    }
-
-    .transformacje h2 { 
-      color: #B91a1a; 
-      margin-bottom: 20px;
-    }
-
-    .transformacje h3 {
-      margin-bottom: 30px;
-      font-weight: normal;
-    }
-
-    .transformacje-gallery {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .transformacja-item {
-      flex: 0 0 auto;
-      width: 200px; /* większe zdjęcia Klaudii */
-      max-width: 200px;
-    }
-
-    .transformacja-item img {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      object-fit: cover;
-    }
-
-    /* ===== OFERTY ===== */
-    .oferty {
-      padding: 50px 20px;
-      max-width: 1100px;
-      margin: auto;
-      text-align: center;
-    }
-
-    .oferta-item {
-      background-color: #fff8e1;
-      border: 2px solid #B91a1a;
-      border-radius: 16px;
-      padding: 25px;
-      margin: 20px auto;
-      max-width: 400px;
-      font-size: 18px; /* lekko większa czcionka */
-      line-height: 1.5;
-    }
-
-    .oferta-item h3 { color: #B91a1a; margin-bottom: 10px; }
-    .oferta-item p { color: #5e5226; }
-
-    /* wymuszamy nowe linie przy cenach */
-    .oferta-item p br { line-height: 2; }
-
-    /* ===== KONTAKT ===== */
-    .kontakt {
-      padding: 50px 20px;
-      max-width: 800px;
-      margin: auto;
-      text-align: center;
-    }
-
-    .kontakt h2 { color: #B91a1a; margin-bottom: 20px; }
-
-    .kontakt a.button {
-      display: inline-block;
-      background-color: #B91a1a;
-      color: #fffae9;
-      padding: 12px 24px;
-      border-radius: 12px;
-      font-weight: bold;
-      margin: 10px;
-      transition: 0.3s;
-    }
-
-    .kontakt a.button:hover { background-color: #5e5226; }
-
-    /* ===== RESPONSYWNOŚĆ ===== */
-    @media (max-width: 1024px) {
-      .about-content { gap: 30px; }
-      .transformacja-item { width: 150px; }
-    }
-
-    @media (max-width: 768px) {
-      .about-content { flex-direction: column; gap: 20px; align-items: center; text-align: center; }
-      .about-text { max-width: 100%; }
-      .about-image img { max-width: 90%; }
-      .transformacja-item { width: 45%; margin: 10px auto; }
-    }
-
-    @media (max-width: 480px) {
-      .hero h1 { font-size: 36px; }
-      .hero h2 { font-size: 24px; }
-      .about-text p { font-size: 18px; }
-      .transformacja-item { width: 80%; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
   <!-- HERO -->
   <section class="hero">
@@ -228,7 +35,7 @@
   <!-- TRANSFORMACJE -->
   <section class="transformacje">
     <h2>Pomogłam już kilku osobom,</h2>
-    <h3>Jedną z nich jest Klaudia:</h3>
+    <h3>jedna z nich to Klaudia:</h3>
     <div class="transformacje-gallery">
       <div class="transformacja-item">
         <img src="assets/img/klaudia-przed.jpg" alt="Klaudia przed">
@@ -272,6 +79,5 @@
 
   <!-- LOGO w prawym dolnym rogu -->
   <img src="assets/img/logo-tlo.png" alt="Logo" class="logo-fixed">
-
 </body>
 </html>
