@@ -5,57 +5,113 @@
 }
 
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
+  font-family: 'Inter', sans-serif;
   background: var(--bg);
   color: var(--text);
-  font-family: 'Inter', sans-serif;
   line-height: 1.6;
 }
 
+/* HERO */
 .hero {
-  min-height: 100vh;
-  max-width: 900px;
-  margin: auto;
-  padding: 4rem 2rem;
+  min-height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
 }
 
-.brand {
-  font-size: 0.9rem;
-  letter-spacing: 0.05em;
-  opacity: 0.7;
-  margin-bottom: 1rem;
-}
-
-.hero h1 {
+.brand-name {
   font-family: 'Playfair Display', serif;
   font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.hero span {
   color: var(--accent);
+  margin-bottom: 0.5rem;
 }
 
+.real-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* SEKCJE */
 .section {
   max-width: 900px;
   margin: auto;
-  padding: 5rem 2rem;
+  padding: 4rem 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
 }
 
-h2 {
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section h2 {
   font-family: 'Playfair Display', serif;
   font-size: 2rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
+/* O MNIE */
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+}
+
+.about-text {
+  flex: 1 1 300px;
+}
+
+.about-text p {
+  margin-bottom: 1rem;
+}
+
+.about-image {
+  flex: 1 1 300px;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+/* PRZEMIANY */
+.transformation-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.transformation-card img {
+  width: 45%;
+  max-width: 300px;
+  border-radius: 14px;
+}
+
+.transformation-card p {
+  width: 100%;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+/* OFERTY */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -67,28 +123,69 @@ h2 {
   padding: 1.5rem;
   border-radius: 14px;
   border: 1px solid rgba(94,82,38,0.2);
+  text-align: center;
 }
 
-.btn {
-  margin-top: 1.5rem;
+.card h3 {
+  margin-bottom: 1rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.card p {
+  margin-bottom: 0.5rem;
+}
+
+.card .price {
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.card .btn {
   display: inline-block;
   background: var(--accent);
   color: white;
-  padding: 0.8rem 1.6rem;
+  padding: 0.6rem 1.2rem;
   border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.card .btn:hover {
+  background: #931313;
+}
+
+/* KONTAKT */
+.contact p {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.contact a {
+  color: var(--accent);
   text-decoration: none;
   font-weight: 600;
 }
 
-.btn.outline {
-  background: transparent;
-  color: var(--accent);
-  border: 2px solid var(--accent);
+.contact a:hover {
+  text-decoration: underline;
 }
 
+/* FOOTER */
 footer {
   text-align: center;
   padding: 2rem;
   font-size: 0.85rem;
   opacity: 0.7;
+}
+
+/* RESPONSYWNOŚĆ */
+@media(max-width:768px){
+  .about-content {
+    flex-direction: column;
+  }
+  .transformation-card img {
+    width: 90%;
+  }
 }
