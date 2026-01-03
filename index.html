@@ -15,12 +15,12 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   position: relative;
-  background-color: transparent; /* ważne, żeby logo było widoczne */
+  background-color: #fffae9; /* Twój kolor tła zostaje */
 }
 
 body::before {
   content: '';
-  position: fixed;         /* logo stoi w miejscu przy scrollu */
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -29,10 +29,11 @@ body::before {
   background-image: url('assets/img/logo-tlo.png');
   background-size: contain;
   background-repeat: no-repeat;
-  opacity: 0.1;            /* półprzezroczyste */
-  z-index: -1;              /* pod wszystkimi elementami */
-  pointer-events: none;     /* nie blokuje kliknięć */
+  opacity: 0.05;      /* subtelne logo */
+  z-index: -1;         /* pod wszystkim */
+  pointer-events: none;
 }
+
 
 /* Jeśli zdjęcia w sekcjach mają białe tło, lekko przezroczyste */
 .about-image img,
