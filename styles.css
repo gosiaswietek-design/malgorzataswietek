@@ -286,3 +286,62 @@ hr.section-divider {
   .price { font-size: 16px; }
 }
 
+/* ===== TRYB CIEMNY ===== */
+@media (prefers-color-scheme: dark) {
+  /* Zmienne kolorów dla dark mode */
+  :root {
+    --bg-primary: #1A1A1A;       /* tło całej strony */
+    --bg-secondary: #2A2A2A;     /* tło sekcji */
+    --fg-primary: #eecc94;       /* tekst zwykły */
+    --accent: #eecc94;           /* nagłówki, przyciski, akcenty */
+    --offers-bg: #2A2A2A;        /* tło sekcji ofert */
+  }
+
+  /* HERO / logo */
+  .hero-logo {
+    filter: invert(65%) sepia(200%) saturate(100%) brightness(100%);
+  }
+
+  /* Przyciski */
+  a.button {
+    background-color: var(--accent);
+    color: var(--bg-primary);
+  }
+
+  /* Linie dekoracyjne */
+  hr.section-divider {
+    border-top-color: var(--accent);
+  }
+
+  /* Sekcje */
+  body {
+    background-color: var(--bg-primary);
+    color: var(--fg-primary);
+  }
+
+  .about, .kontakt, .offers {
+    background-color: var(--bg-secondary);
+    color: var(--fg-primary);
+  }
+
+  /* Sekcja ofert – tło i teksty */
+  .offers {
+    background-color: var(--offers-bg);
+  }
+
+  .offers h2 {
+    color: var(--accent);
+  }
+
+  .offer .name,
+  .offer .price {
+    color: var(--accent);
+  }
+
+  .offer .desc,
+  .offer .who {
+    color: #ccc; /* delikatniejszy tekst w ciemnym trybie */
+  }
+}
+
+
