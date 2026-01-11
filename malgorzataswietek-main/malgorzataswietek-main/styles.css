@@ -1,0 +1,355 @@
+/* ===== COLOR VARIABLES ===== */
+:root {
+  --bg-primary: #FFFAE9;
+  --bg-secondary: #F5E6D3;
+  --fg-primary: #5E5226;
+  --accent: #B91A1A;
+}
+
+/* ===== GLOBAL ===== */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--fg-primary);
+  line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+  padding-bottom: 40px;
+}
+a { text-decoration: none; color: inherit; }
+h1,h2,h3 { margin: 0; }
+
+/* ===== LOGO w prawym dolnym rogu ===== */
+.logo-fixed {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 80px;
+  height: auto;
+  opacity: 0.3;
+  z-index: 1000;
+  filter: brightness(0) saturate(100%) invert(24%) sepia(95%) saturate(1200%) hue-rotate(345deg);
+  color: var(--accent);
+}
+
+/* ===== HERO ===== */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 0px;
+  padding-bottom: 15px;
+  background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-primary) 100%);
+}
+
+.hero-logo {
+  max-width: 300px;
+  height: auto;
+  margin-bottom: -30px;
+  filter: brightness(0) saturate(100%) invert(24%) sepia(95%) saturate(1200%) hue-rotate(345deg);
+  cursor: pointer;
+  transition: transform 0.3s;
+  display: inline-block;
+}
+
+.hero a:hover .hero-logo {
+  transform: scale(1.05);
+}
+
+.hero h1 {
+  font-size: 100px;
+  color: var(--accent);
+  margin-bottom: 15px;
+}
+
+.hero h2 {
+  font-size: 32px;
+  color: var(--fg-primary);
+}
+
+/* ===== LINIE DEKORACYJNE ===== */
+hr.section-divider {
+  border: none;
+  border-top: 3px solid var(--accent);
+  width: 70%;
+  margin: 70px auto;
+}
+
+/* ===== KIM JESTEM ===== */
+.about {
+  padding: 20px 20px;
+  max-width: 1100px;
+  margin: auto;
+  background-color: var(--bg-secondary);
+  border-radius: 24px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.about-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 40px;
+}
+
+.about-image {
+  flex: 1;
+  max-width: 400px;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.about-image img:hover {
+  transform: scale(1.05);
+}
+
+.about-text {
+  flex: 1;
+  max-width: 600px;
+}
+
+.about-text h2 {
+  color: var(--accent);
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.about-text p {
+  font-size: 18px;
+  color: var(--fg-primary);
+  text-align: left;
+}
+
+/* ===== OFERTY ===== */
+.offers {
+  background: #f7e6d5;
+  padding: 60px 40px;
+  border-radius: 20px;
+  max-width: 1200px;
+  margin: 80px auto;
+  font-family: sans-serif;
+}
+
+.offers h2 {
+  text-align: center;
+  font-size: 38px;
+  color: #b02a2a;
+  margin-bottom: 40px;
+}
+
+.offer {
+  display: grid;
+  grid-template-columns: 160px minmax(200px, 1fr) 1fr 160px;
+  gap: 15px;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 2px solid #b02a2a;
+}
+
+
+.offer:last-child {
+  border-bottom: none;
+}
+
+.name {
+  font-weight: bold;
+  color: #b02a2a;
+}
+
+.desc {
+  display: flex;
+  align-items: center;
+  color: #333;
+}
+
+.who {
+  font-style: italic;
+  color: #555;
+  font-size: 16px;
+}
+
+.price {
+  text-align: right;
+  font-weight: bold;
+  color: #b02a2a;
+}
+
+.price.highlight {
+  font-size: 22px;
+}
+
+@media (max-width: 800px) {
+  .oferty {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 20px 10px;
+  }
+
+  .name {
+    font-size: 18px;
+    color: #b02a2a;
+  }
+
+  .price {
+    text-align: left;
+    font-size: 18px;
+    margin-top: 5px;
+  }
+
+  .who {
+    font-style: italic;
+    color: #666;
+  }
+}
+
+
+/* ===== KONTAKT ===== */
+.kontakt {
+  padding: 50px 20px;
+  max-width: 1100px;
+  margin: auto;
+  text-align: center;
+  background-color: var(--bg-secondary);
+  border-radius: 24px;
+}
+
+.kontakt h2 { 
+  color: var(--accent); 
+  font-size: 36px;
+  margin-bottom: 20px; 
+}
+
+.kontakt a.button {
+  display: inline-block;
+  background-color: var(--accent);
+  color: var(--bg-primary);
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: bold;
+  margin: 10px;
+  transition: 0.3s;
+}
+
+.kontakt a.button:hover { background-color: var(--fg-primary); }
+
+/* ===== STOPKA ===== */
+.site-footer {
+  text-align: center;       /* wyśrodkowanie tekstu */
+  display: center;
+  font-size: 10px;          /* drobna, elegancka czcionka */
+  color: #555;              /* ciemnoszary, nie czarny – łagodniejszy dla oka */
+  padding: 40px 40px;          /* przestrzeń nad i pod stopką */
+  border-top: 1px solid #eee; /* delikatna linia oddzielająca od reszty strony */
+  background-color: #fff;    /* albo #f9f9f9 dla lekkiego kontrastu */
+  font-family: 'Inter', sans-serif; /* albo Twoja główna czcionka */
+}
+
+/* ===== RESPONSYWNOŚĆ ===== */
+@media (max-width: 1024px) {
+  .about-content { gap: 30px; }
+}
+
+@media (max-width: 768px) {
+  .about-content { flex-direction: column; gap: 20px; align-items: center; text-align: center; }
+  .about-text { max-width: 100%; }
+  .about-image img { max-width: 90%; }
+  .oferta-items-container { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 36px; }
+  .hero h2 { font-size: 24px; }
+  .about-text p { font-size: 18px; }
+}
+
+/* ===== TRYB CIEMNY ===== */
+@media (prefers-color-scheme: dark) {
+  /* Zmienne kolorów dla dark mode */
+  :root {
+    --bg-primary: #1A1A1A;       /* tło całej strony */
+    --bg-secondary: #2A2A2A;     /* tło sekcji */
+    --fg-primary: #eecc94;       /* tekst zwykły */
+    --accent: #eecc94;           /* nagłówki, przyciski, akcenty */
+    --offers-bg: #2A2A2A;        /* tło sekcji ofert */
+  }
+
+  /* HERO / logo */
+  .hero-logo {
+    filter: invert(65%) sepia(200%) saturate(100%) brightness(100%);
+  }
+
+ .logo-fixed {
+  opacity: 0.2; 
+  filter: invert(100%) sepia(0%) saturate(0%) brightness(150%);
+
+}
+
+
+
+  /* Przyciski */
+  a.button {
+    background-color: var(--accent);
+    color: var(--bg-primary);
+  }
+
+  /* Linie dekoracyjne */
+  hr.section-divider {
+    border-top-color: var(--accent);
+  }
+
+  /* Sekcje */
+  body {
+    background-color: var(--bg-primary);
+    color: var(--fg-primary);
+  }
+
+  .about, .kontakt, .offers {
+    background-color: var(--bg-secondary);
+    color: var(--fg-primary);
+  }
+
+  /* Sekcja ofert – tło i teksty */
+  .offers {
+    background-color: var(--offers-bg);
+  }
+
+  .offers h2 {
+    color: var(--accent);
+  }
+
+  .offer .name,
+  .offer .price {
+    color: var(--accent);
+  }
+
+  .offer .desc,
+  .offer .who {
+    color: #ccc; /* delikatniejszy tekst w ciemnym trybie */
+  }
+
+    .site-footer {
+    background-color: #1a1a1a; /* ciemne tło */
+    color: #ccc;                /* jasnoszary tekst */
+    border-top: 1px solid #333; /* delikatna granica */
+  }
+
+  .footer-socials a {
+    color: #ccc;
+  }
+
+  .footer-socials a:hover {
+    color: #fff;
+  }
+}
+
+
+
