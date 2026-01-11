@@ -69,6 +69,8 @@ h1,h2,h3 { margin: 0; }
   color: var(--fg-primary);
 }
 
+
+
 /* ===== LINIE DEKORACYJNE ===== */
 hr.section-divider {
   border: none;
@@ -76,6 +78,18 @@ hr.section-divider {
   width: 70%;
   margin: 70px auto;
 }
+
+/* Sekcja – centrowanie boxa */
+#zdrowe-nawyki {
+  display: flex;
+  justify-content: center;   /* poziome wyśrodkowanie boxa */
+  padding: 40px 20px;        /* odstęp od innych sekcji */
+  background-color: transparent; /* brak paska tła */
+  font-size: 30px;
+  text-align: center;  /* wyśrodkowanie poziome tekstu */
+}
+
+
 
 /* ===== KIM JESTEM ===== */
 .about {
@@ -247,7 +261,7 @@ hr.section-divider {
   display: center;
   font-size: 10px;          /* drobna, elegancka czcionka */
   color: #555;              /* ciemnoszary, nie czarny – łagodniejszy dla oka */
-  padding: 20px 40px;          /* przestrzeń nad i pod stopką */
+  padding: 40px 40px;          /* przestrzeń nad i pod stopką */
   border-top: 1px solid #eee; /* delikatna linia oddzielająca od reszty strony */
   background-color: #fff;    /* albo #f9f9f9 dla lekkiego kontrastu */
   font-family: 'Inter', sans-serif; /* albo Twoja główna czcionka */
@@ -314,6 +328,11 @@ hr.section-divider {
   /* HERO / logo */
   .hero-logo {
     filter: invert(65%) sepia(200%) saturate(100%) brightness(100%);
+  }
+
+   #zdrowe-nawyki .box {
+    background-color: #2A2A2A;
+    color: #eecc94;
   }
 
   /* logo prawy dolny */

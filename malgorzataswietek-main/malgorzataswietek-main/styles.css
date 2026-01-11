@@ -77,6 +77,23 @@ hr.section-divider {
   margin: 70px auto;
 }
 
+/* ===== WSTĘP ====== */
+.wstęp {
+  all: unset;               /* ignoruje wszystkie dziedziczone style */
+  display: flex !important; /* wymusza Flexbox */
+  justify-content: center !important; /* poziome wyśrodkowanie */
+  align-items: center !important;     /* pionowe wyśrodkowanie */
+  width: 100vw !important;  /* cała szerokość okna */
+  min-height: 200px;        /* wysokość sekcji */
+  text-align: center !important;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+  font-size: 1.2rem;
+  color: #333;
+  position: relative;
+}
+
 /* ===== KIM JESTEM ===== */
 .about {
   padding: 20px 20px;
@@ -348,6 +365,11 @@ hr.section-divider {
 
   .footer-socials a:hover {
     color: #fff;
+  }
+
+  .zdrowe-nawyki {
+    background-color: #222;
+    color: #eee;
   }
 }
 
