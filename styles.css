@@ -194,8 +194,13 @@ hr.section-divider {
   .story-box p {
     font-size: 15px;
   }
+  
 }
-
+@media (max-width: 600px) {
+  .gallery img {
+    width: calc(50% - 10px); /* 2 obok siebie z zachowaniem gap */
+  }
+}
 /* ===== GALERIA ZDJĘĆ – MOJA HISTORIA ===== */
 .story-images {
   display: grid;
