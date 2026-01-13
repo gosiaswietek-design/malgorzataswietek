@@ -16,6 +16,24 @@
 </head>
 <body>
 
+<!-- Hamburger -->
+<div class="menu-toggle">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- Wysuwane menu -->
+<nav class="mobile-menu">
+  <a href="#about">KIM JESTEM</a>
+  <a href="#story">MOJA HISTORIA</a>
+  <a href="#steps">WSPÓŁPRACA KROK PO KROKU</a>
+  <a href="#offer">OFERTA</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact">KONTAKT</a>
+</nav>
+
+
   <!-- HERO -->
   <section class="hero">
     <a href="https://www.instagram.com/kamieniemealowe" target="_blank">
@@ -231,6 +249,7 @@
 </footer>
 
 <script>
+
 const faqItems = document.querySelectorAll('.faq-item');
 
 faqItems.forEach(item => {
@@ -245,6 +264,26 @@ faqItems.forEach(item => {
   });
 });
 </script>
+
+<script>
+const toggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('.mobile-menu');
+
+toggle.addEventListener('click', () => {
+  toggle.classList.toggle('active');
+  menu.classList.toggle('active');
+});
+
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    toggle.classList.remove('active');
+    menu.classList.remove('active');
+  });
+});
+</script>
+
+
+
 
   
 </body>

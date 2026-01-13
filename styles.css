@@ -15,10 +15,13 @@ body {
   line-height: 1.6;
   position: relative;
   overflow-x: hidden;
+  position: relative;
   padding-bottom: 40px;
 }
 a { text-decoration: none; color: inherit; }
 h1,h2,h3 { margin: 0; }
+
+
 
 /* ===== LOGO w prawym dolnym rogu ===== */
 .logo-fixed {
@@ -896,6 +899,86 @@ body.dark .story-images img {
 
   .faq-answer p {
     font-size: 14px;
+  }
+}
+
+.menu-toggle {
+  position: fixed !important;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 2147483647;
+}
+
+.menu-toggle span {
+  height: 4px;
+  width: 100%;
+  background: var(--fg-primary);
+  border-radius:2px;
+}
+/* ===== Wysuwane menu ===== */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -320px; /* <- musi być minus ta sama szerokość */
+  width: 320px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 80px 20px;
+  gap: 20px;
+  transition: right 0.4s ease;
+  z-index: 9999;
+  overflow-y: auto;
+  box-sizing: border-box;
+  background-color: var(--bg-secondary); /* domyślnie */
+}
+
+.mobile-menu a {
+  position: static !important; /* upewniamy się że linki nie są absolutne */
+  display: block !important;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 10px 12px;
+  border-radius: 10px;
+  transition: background 0.3s, color 0.3s;
+  color: var(--fg-primary);
+}
+
+/* Wysunięcie menu */
+.mobile-menu.active {
+  right: 0;
+}
+@media (prefers-color-scheme: dark) {
+  .mobile-menu {
+    background: var(--bg-primary);
+  }
+  .mobile-menu a {
+    background: rgba(255,255,255,0.03);
+    color: var(--fg-primary);
+  }
+  .mobile-menu a:hover {
+    background: rgba(176,42,42,0.12);
+    color: var(--accent);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .mobile-menu {
+    background: var(--bg-primary);
+  }
+  .mobile-menu a {
+    background: var(--bg-secondary);
+    color: #333333;
+  }
+  .mobile-menu a:hover {
+    background: rgba(238, 203, 148, 0.471);
+    color: var(--accent);
   }
 }
 
