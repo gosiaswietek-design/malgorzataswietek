@@ -150,6 +150,67 @@
 </section>
   <hr class="section-divider">
 
+
+    <!-- FAQ -->
+<section class="faq">
+  <div class="faq-container">
+    <h2>FAQ</h2>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        Jak mogę zgłosić się do Ciebie na współpracę?
+        <span class="arrow">▼</span>
+      </button>
+      <div class="faq-answer">
+        <p>Przez formularz na stronie lub instagrama (info w sekcji kontakt).</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        Czy oferujesz programy dopasowane do początkujących?
+        <span class="arrow">▼</span>
+      </button>
+      <div class="faq-answer">
+        <p>Tak, wszystkie informacje i wskazówki dobieram tak, by było to zrozumiałe i możliwe do wprowadzenia na każdym etapie zaawansowania.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        Czy muszę ćwiczyć na siłowni?
+        <span class="arrow">▼</span>
+      </button>
+      <div class="faq-answer">
+        <p>Nie, wiele ćwiczeń możesz wykonywać w domu z wykorzystaniem masy ciała lub lekkich sprzętów.</p>
+      </div>
+    </div>
+
+        <div class="faq-item">
+      <button class="faq-question">
+        Czy muszę liczyć kalorie, żeby schudnąć?
+        <span class="arrow">▼</span>
+      </button>
+      <div class="faq-answer">
+        <p>Nie, przedstawię Ci wskazówki dotyczące żywienia w taki sposób, żeby liczenie kalorii nie było konieczne.</p>
+      </div>
+    </div>
+
+            <div class="faq-item">
+      <button class="faq-question">
+        Czy mogę się kontaktować z Tobą na codzień w ramach pytań itd.?
+        <span class="arrow">▼</span>
+      </button>
+      <div class="faq-answer">
+        <p>Tak, jest taka możliwość, jeśli wybierzesz współpracę ze stałym kontaktem w pakiecie.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+ <hr class="section-divider">
+
   
   <!-- KONTAKT -->
   <section class="kontakt">
@@ -168,6 +229,23 @@
 <footer class="site-footer">
   <p>© 2026 Kamienie Mealowe. Wszystkie prawa zastrzeżone.</p>
 </footer>
+
+<script>
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+  const button = item.querySelector('.faq-question');
+
+  button.addEventListener('click', () => {
+    // zamyka inne elementy
+    faqItems.forEach(i => i !== item ? i.classList.remove('active') : null);
+
+    // otwiera / zamyka ten element
+    item.classList.toggle('active');
+  });
+});
+</script>
+
   
 </body>
 </html>

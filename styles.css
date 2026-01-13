@@ -89,12 +89,10 @@ hr.section-divider {
   text-align: center;  /* wyśrodkowanie poziome tekstu */
 }
 
-
-
 /* ===== KIM JESTEM ===== */
 .about {
   padding: 20px 20px;
-  max-width: 1100px;
+  max-width: 1000px;
   margin: auto;
   background-color: var(--bg-secondary);
   border-radius: 24px;
@@ -148,8 +146,8 @@ hr.section-divider {
   background: #f7e6d5;          /* jak pozostałe boxy */
   padding: 60px 40px;
   border-radius: 20px;
-  max-width: 1200px;
-  margin: 80px auto;
+  max-width: 1250px;
+  margin: auto;
   font-family: sans-serif;
 }
 
@@ -201,6 +199,7 @@ hr.section-divider {
     width: calc(50% - 10px); /* 2 obok siebie z zachowaniem gap */
   }
 }
+
 /* ===== GALERIA ZDJĘĆ – MOJA HISTORIA ===== */
 .story-images {
   display: grid;
@@ -256,8 +255,8 @@ body.dark .story-images img {
   background: #f7e6d5;
   padding: 60px 40px;
   border-radius: 20px;
-  max-width: 1200px;
-  margin: 80px auto;
+  max-width: 1250px;
+  margin: auto;
   font-family: sans-serif;
 }
 
@@ -308,8 +307,8 @@ body.dark .story-images img {
   background: #f7e6d5;
   padding: 60px 40px;
   border-radius: 20px;
-  max-width: 1200px;
-  margin: 80px auto;
+  max-width: 1250px;
+  margin: auto;
   font-family: sans-serif;
 }
 
@@ -385,11 +384,84 @@ body.dark .story-images img {
   }
 }
 
+/*===== FAQ =====*/
+
+.faq {
+  padding: 40px 20px;
+  max-width: 1250px;
+  margin: auto;
+}
+
+.faq-container {
+  background-color: var(--bg-secondary);
+  border-radius: 24px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  padding: 30px 40px;
+}
+
+.faq h2 {
+  color: var(--accent);
+  font-size: 36px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding: 15px 0;
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--fg-primary);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  transition: color 0.3s;
+}
+
+.faq-question:hover {
+  color: var(--accent);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  padding-left: 10px;
+}
+
+.faq-answer p {
+  margin: 10px 0;
+  font-size: 18px;
+  color: var(--fg-primary);
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px; /* duża wartość, żeby pomieścić tekst */
+  padding-top: 10px;
+}
+
+.arrow {
+  transition: transform 0.3s;
+}
+
+.faq-item.active .arrow {
+  transform: rotate(180deg);
+}
+
 
 /* ===== KONTAKT ===== */
 .kontakt {
   padding: 50px 20px;
-  max-width: 1100px;
+  max-width: 1000px;
   margin: auto;
   text-align: center;
   background-color: var(--bg-secondary);
@@ -442,6 +514,53 @@ body.dark .story-images img {
   .hero h1 { font-size: 36px; }
   .hero h2 { font-size: 24px; }
   .about-text p { font-size: 18px; }
+}
+
+/* ===== RESPONSYWNOŚĆ MOJA HISTORIA ===== */
+@media (max-width: 900px) {
+  .my-story {
+    padding: 40px 25px;
+  }
+
+  .my-story h2 {
+    font-size: 30px;
+  }
+
+  .story-box p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 550px) {
+  .my-story {
+    padding: 35px 20px;
+  }
+
+  .my-story h2 {
+    font-size: 26px;
+  }
+
+  .story-box p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 900px) {
+  .story-images {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 550px) {
+  .story-images {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery img {
+    width: calc(50% - 10px); /* 2 obok siebie z zachowaniem gap */
+  }
 }
 
 /* ===== MOBILE FIX ===== */
@@ -518,6 +637,40 @@ body.dark .story-images img {
   }
 }
 
+/* Responsywność FAQ*/
+@media (max-width: 768px) {
+  .faq-container {
+    padding: 20px;
+  }
+
+  .faq h2 {
+    font-size: 28px;
+  }
+
+  .faq-question {
+    font-size: 18px;
+  }
+
+  .faq-answer p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq h2 {
+    font-size: 24px;
+  }
+
+  .faq-question {
+    font-size: 16px;
+  }
+
+  .faq-answer p {
+    font-size: 14px;
+  }
+}
+
+
 
 /* ===== TRYB CIEMNY ===== */
 @media (prefers-color-scheme: dark) {
@@ -569,7 +722,8 @@ body.dark .story-images img {
     color: var(--fg-primary);
   }
 
-  /* ===== MOJA HISTORIA ===== */
+/* ===== MOJA HISTORIA ===== */
+
 .my-story {
   background: var(--bg-secondary);   /* tło boxa w dark mode */
 }
@@ -580,10 +734,7 @@ body.dark .story-images img {
 
 .story-box p {
   color: var(--fg-primary);         /* tekst w kolorze złotym dla ciemnego tła */
-}
-
-
-
+} 
   /* WSPÓŁPRACA ZE MNĄ */
 
 .steps {
@@ -641,5 +792,112 @@ body.dark .story-images img {
     color: #fff;
   }
 }
+
+.faq {
+  padding: 40px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.faq-container {
+  background-color: var(--bg-secondary);
+  border-radius: 24px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  padding: 30px 40px;
+}
+
+.faq h2 {
+  color: var(--accent);
+  font-size: 36px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 15px 0;
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--fg-primary);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  transition: color 0.3s;
+}
+
+.faq-question:hover {
+  color: var(--accent);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  padding-left: 10px;
+}
+
+.faq-answer p {
+  margin: 10px 0;
+  font-size: 18px;
+  color: var(--fg-primary);
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+  padding-top: 10px;
+}
+
+/* strzałka */
+.arrow {
+  color: #b02a2a;
+  transition: transform 0.3s;
+}
+
+.faq-item.active .arrow {
+  transform: rotate(180deg);
+}
+
+/* ===== Responsywność ===== */
+@media (max-width: 768px) {
+  .faq-container {
+    padding: 20px;
+  }
+
+  .faq h2 {
+    font-size: 28px;
+  }
+
+  .faq-question {
+    font-size: 18px;
+  }
+
+  .faq-answer p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq h2 {
+    font-size: 24px;
+  }
+
+  .faq-question {
+    font-size: 16px;
+  }
+
+  .faq-answer p {
+    font-size: 14px;
+  }
+}
+
 
 
