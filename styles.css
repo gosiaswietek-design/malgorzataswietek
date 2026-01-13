@@ -314,7 +314,7 @@ hr.section-divider {
   font-size: 10px;          /* drobna, elegancka czcionka */
   color: #555;              /* ciemnoszary, nie czarny – łagodniejszy dla oka */
   padding: 40px 40px;          /* przestrzeń nad i pod stopką */
-  border-top: 1px solid #eee; /* delikatna linia oddzielająca od reszty strony */
+  border-top: none; /* delikatna linia oddzielająca od reszty strony */
   background-color: #FFFAE9;    /* albo #f9f9f9 dla lekkiego kontrastu */
   font-family: 'Inter', sans-serif; /* albo Twoja główna czcionka */
 }
