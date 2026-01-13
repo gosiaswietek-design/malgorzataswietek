@@ -4,6 +4,7 @@
   --bg-secondary: #F5E6D3;
   --fg-primary: #5E5226;
   --accent: #B91A1A;
+  --accent-light: #eecc94;
 }
 
 /* ===== GLOBAL ===== */
@@ -15,26 +16,26 @@ body {
   line-height: 1.6;
   position: relative;
   overflow-x: hidden;
-  position: relative;
   padding-bottom: 40px;
 }
 a { text-decoration: none; color: inherit; }
 h1,h2,h3 { margin: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
-
-
-/* ===== LOGO w prawym dolnym rogu ===== */
+/* logo prawy dolny – jasny tryb */
 .logo-fixed {
   position: fixed;
   bottom: 20px;
   right: 20px;
   width: 80px;
   height: auto;
-  opacity: 0.3;
+  opacity: 0.3;       /* delikatność */
+  background: transparent; /* absolutnie żadne tło */
+    filter: brightness(0) saturate(100%) invert(24%) sepia(95%) saturate(1200%) hue-rotate(345deg);
   z-index: 1000;
-  filter: brightness(0) saturate(100%) invert(24%) sepia(95%) saturate(1200%) hue-rotate(345deg);
-  color: var(--accent);
+  transition: opacity 0.3s, filter 0.3s;
 }
+
 
 /* ===== HERO ===== */
 .hero {
@@ -46,40 +47,26 @@ h1,h2,h3 { margin: 0; }
   padding-bottom: 15px;
   background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-primary) 100%);
 }
-
 .hero-logo {
   max-width: 300px;
   height: auto;
   margin-bottom: -30px;
-  filter: brightness(0) saturate(100%) invert(24%) sepia(95%) saturate(1200%) hue-rotate(345deg);
   cursor: pointer;
   transition: transform 0.3s;
-  display: inline-block;
+  filter: brightness(0) saturate(100%) invert(24%) sepia(95%) saturate(1200%) hue-rotate(345deg);
 }
-
-.hero a:hover .hero-logo {
+.hero-logo:hover {
   transform: scale(1.05);
 }
-
 .hero h1 {
   font-size: 100px;
   color: var(--accent);
   margin-bottom: 15px;
 }
-
 .hero h2 {
   font-size: 32px;
   color: var(--fg-primary);
-}
-
-
-
-/* ===== LINIE DEKORACYJNE ===== */
-hr.section-divider {
-  border: none;
-  border-top: 3px solid var(--accent);
-  width: 70%;
-  margin: 70px auto;
+  max-width: 800px;
 }
 
 /* Sekcja – centrowanie boxa */
@@ -92,28 +79,34 @@ hr.section-divider {
   text-align: center;  /* wyśrodkowanie poziome tekstu */
 }
 
+
+/* ===== LINIE DEKORACYJNE ===== */
+hr.section-divider {
+  border: none;
+  border-top: 3px solid var(--accent);
+  width: 70%;
+  margin: 70px auto;
+}
+
 /* ===== KIM JESTEM ===== */
 .about {
-  padding: 20px 20px;
+  padding: 20px;
   max-width: 1000px;
   margin: auto;
   background-color: var(--bg-secondary);
   border-radius: 24px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
-
 .about-content {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 40px;
 }
-
 .about-image {
   flex: 1;
   max-width: 400px;
 }
-
 .about-image img {
   width: 100%;
   height: auto;
@@ -121,169 +114,72 @@ hr.section-divider {
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
   transition: transform 0.3s;
 }
-
-.about-image img:hover {
-  transform: scale(1.05);
-}
-
+.about-image img:hover { transform: scale(1.05); }
 .about-text {
   flex: 1;
   max-width: 600px;
 }
-
 .about-text h2 {
   color: var(--accent);
   font-size: 36px;
   margin-bottom: 20px;
-  text-align: left;
 }
-
 .about-text p {
   font-size: 18px;
   color: var(--fg-primary);
-  text-align: left;
 }
 
 /* ===== MOJA HISTORIA ===== */
 .my-story {
-  background: #f7e6d5;          /* jak pozostałe boxy */
+  background: var(--bg-secondary);
   padding: 60px 40px;
   border-radius: 20px;
   max-width: 1250px;
   margin: auto;
-  font-family: sans-serif;
 }
-
 .my-story h2 {
   text-align: center;
   font-size: 38px;
-  color: #b02a2a;               /* złoty akcent dla spójności */
+  color: var(--accent);
   margin-bottom: 40px;
 }
-
 .story-box p {
-  color: #333;
+  color: var(--fg-primary);
   font-size: 18px;
   line-height: 1.6;
   margin-bottom: 20px;
 }
-
-/* ===== RESPONSYWNOŚĆ ===== */
-@media (max-width: 900px) {
-  .my-story {
-    padding: 40px 25px;
-  }
-
-  .my-story h2 {
-    font-size: 30px;
-  }
-
-  .story-box p {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 550px) {
-  .my-story {
-    padding: 35px 20px;
-  }
-
-  .my-story h2 {
-    font-size: 26px;
-  }
-
-  .story-box p {
-    font-size: 15px;
-  }
-  
-}
-@media (max-width: 600px) {
-  .gallery img {
-    width: calc(50% - 10px); /* 2 obok siebie z zachowaniem gap */
-  }
-}
-
-/* ===== GALERIA ZDJĘĆ – MOJA HISTORIA ===== */
 .story-images {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   margin-top: 30px;
 }
-
 .story-images img {
   width: 100%;
   border-radius: 15px;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
+.story-images img:hover { transform: scale(1.05); }
 
-/* efekt lekkiego powiększenia przy hover */
-.story-images img:hover {
-  transform: scale(1.05);
-}
-
-/* ===== RESPONSYWNOŚĆ ===== */
-@media (max-width: 900px) {
-  .story-images {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 550px) {
-  .story-images {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ===== TRYB CIEMNY ===== */
-body.dark .my-story {
-  background: var(--bg-secondary);
-}
-
-body.dark .my-story h2 {
-  color: var(--accent);
-}
-
-body.dark .story-box p {
-  color: var(--fg-primary);
-}
-/* ===== TRYB CIEMNY ===== */
-body.dark .story-images img {
-  border: 2px solid var(--accent); /* delikatny złoty border w ciemnym trybie */
-}
-
-/* ===== WSPÓŁPRACA ZE MNĄ =====*/
+/* ===== WSPÓŁPRACA ZE MNĄ ===== */
 .steps {
-  background: #f7e6d5;
+  background: var(--bg-secondary);
   padding: 60px 40px;
   border-radius: 20px;
   max-width: 1250px;
   margin: auto;
-  font-family: sans-serif;
 }
-
-.steps h2 {
-  text-align: center;
-  font-size: 38px;
-  color: #b02a2a;
-  margin-bottom: 40px;
-}
-
-.steps-box {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
-}
-
+.steps h2 { text-align: center; font-size: 38px; color: var(--accent); margin-bottom: 40px; }
+.steps-box { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; }
 .step {
-  background: #fff;
+  background: var(--bg-primary);
   padding: 30px;
   border-radius: 16px;
   text-align: center;
   box-shadow: 0 4px 10px rgba(0,0,0,0.06);
 }
-
 .step span {
   display: inline-flex;
   justify-content: center;
@@ -291,129 +187,52 @@ body.dark .story-images img {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: #b02a2a;
-  color: #fff;
+  background: var(--accent);
+  color: var(--bg-primary);
   font-size: 22px;
   font-weight: bold;
   margin-bottom: 15px;
 }
-
-.step p {
-  font-size: 16px;
-  color: #333;
-  line-height: 1.5;
-}
-
+.step p { font-size: 16px; color: var(--fg-primary); line-height: 1.5; }
 
 /* ===== OFERTY ===== */
 .offers {
-  background: #f7e6d5;
+  background: var(--bg-secondary);
   padding: 60px 40px;
   border-radius: 20px;
   max-width: 1250px;
   margin: auto;
-  font-family: sans-serif;
 }
-
-.offers h2 {
-  text-align: center;
-  font-size: 38px;
-  color: #b02a2a;
-  margin-bottom: 40px;
-}
-
+.offers h2 { text-align: center; font-size: 38px; color: var(--accent); margin-bottom: 40px; }
 .offer {
   display: grid;
   grid-template-columns: 160px minmax(200px, 1fr) 1fr 160px;
   gap: 15px;
   align-items: center;
   padding: 20px 0;
-  border-bottom: 2px solid #b02a2a;
+  border-bottom: 2px solid var(--accent);
 }
+.offer:last-child { border-bottom: none; }
+.name { font-weight: bold; color: var(--accent); }
+.desc { display: flex; align-items: center; color: #333; }
+.who { font-style: italic; color: #555; font-size: 16px; }
+.price { text-align: right; font-weight: bold; color: var(--accent); }
+.price.highlight { font-size: 22px; }
 
-
-.offer:last-child {
-  border-bottom: none;
-}
-
-.name {
-  font-weight: bold;
-  color: #b02a2a;
-}
-
-.desc {
-  display: flex;
-  align-items: center;
-  color: #333;
-}
-
-.who {
-  font-style: italic;
-  color: #555;
-  font-size: 16px;
-}
-
-.price {
-  text-align: right;
-  font-weight: bold;
-  color: #b02a2a;
-}
-
-.price.highlight {
-  font-size: 22px;
-}
-
-@media (max-width: 800px) {
-  .offers {
-    grid-template-columns: 1fr;
-    gap: 8px;
-    padding: 20px 10px;
-  }
-
-  .name {
-    font-size: 18px;
-    color: #b02a2a;
-  }
-
-  .price {
-    text-align: left;
-    font-size: 18px;
-    margin-top: 5px;
-  }
-
-  .who {
-    font-style: italic;
-    color: #666;
-  }
-}
-
-/*===== FAQ =====*/
-
+/* ===== FAQ ===== */
 .faq {
   padding: 40px 20px;
-  max-width: 1250px;
+  max-width: 1100px;
   margin: auto;
 }
-
 .faq-container {
   background-color: var(--bg-secondary);
   border-radius: 24px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.05);
   padding: 30px 40px;
 }
-
-.faq h2 {
-  color: var(--accent);
-  font-size: 36px;
-  margin-bottom: 30px;
-  text-align: left;
-}
-
-.faq-item {
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-  padding: 15px 0;
-}
-
+.faq h2 { color: var(--accent); font-size: 36px; margin-bottom: 30px; text-align: left; }
+.faq-item { border-bottom: 1px solid rgba(0,0,0,0.1); padding: 15px 0; }
 .faq-question {
   width: 100%;
   text-align: left;
@@ -429,35 +248,28 @@ body.dark .story-images img {
   padding: 10px 0;
   transition: color 0.3s;
 }
-
-.faq-question:hover {
-  color: var(--accent);
-}
-
+.faq-question:hover { color: var(--accent); }
 .faq-answer {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease, padding 0.4s ease;
   padding-left: 10px;
 }
+.faq-answer p { margin: 10px 0; font-size: 18px; color: var(--fg-primary); }
+.faq-item.active .faq-answer { max-height: 500px; padding-top: 10px; }
+.arrow { transition: transform 0.3s; }
+.faq-item.active .arrow { transform: rotate(180deg); }
 
-.faq-answer p {
-  margin: 10px 0;
-  font-size: 18px;
-  color: var(--fg-primary);
-}
-
-.faq-item.active .faq-answer {
-  max-height: 500px; /* duża wartość, żeby pomieścić tekst */
-  padding-top: 10px;
-}
-
+/* Strzałki FAQ – jasny tryb */
 .arrow {
+  color: #B91A1A; /* czerwony */
   transition: transform 0.3s;
 }
 
+/* Strzałka po rozwinięciu */
 .faq-item.active .arrow {
   transform: rotate(180deg);
+  color: #B91A1A; /* żeby pozostała czerwona po kliknięciu */
 }
 
 
@@ -470,13 +282,7 @@ body.dark .story-images img {
   background-color: var(--bg-secondary);
   border-radius: 24px;
 }
-
-.kontakt h2 { 
-  color: var(--accent); 
-  font-size: 36px;
-  margin-bottom: 20px; 
-}
-
+.kontakt h2 { color: var(--accent); font-size: 36px; margin-bottom: 20px; }
 .kontakt a.button {
   display: inline-block;
   background-color: var(--accent);
@@ -487,423 +293,30 @@ body.dark .story-images img {
   margin: 10px;
   transition: 0.3s;
 }
-
-.kontakt a.button:hover { background-color: var(--fg-primary); }
+.kontakt a.button:hover { background-color: var(--fg-primary); color: var(--bg-primary); }
 
 /* ===== STOPKA ===== */
 .site-footer {
-  text-align: center;       /* wyśrodkowanie tekstu */
-  display: center;
-  font-size: 10px;          /* drobna, elegancka czcionka */
-  color: #555;              /* ciemnoszary, nie czarny – łagodniejszy dla oka */
-  padding: 40px 40px;          /* przestrzeń nad i pod stopką */
-  background-color: #FFFAE9;    /* albo #f9f9f9 dla lekkiego kontrastu */
-  font-family: 'Inter', sans-serif; /* albo Twoja główna czcionka */
+  text-align: center;
+  font-size: 10px;
+  color: #555;
+  padding: 40px 40px;
+  background-color: var(--bg-primary);
 }
 
 /* ===== RESPONSYWNOŚĆ ===== */
-@media (max-width: 1024px) {
-  .about-content { gap: 30px; }
-}
-
-@media (max-width: 768px) {
-  .about-content { flex-direction: column; gap: 20px; align-items: center; text-align: center; }
-  .about-text { max-width: 100%; }
-  .about-image img { max-width: 90%; }
-  .oferta-items-container { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 480px) {
-  .hero h1 { font-size: 36px; }
-  .hero h2 { font-size: 24px; }
-  .about-text p { font-size: 18px; }
-}
-
-/* ===== RESPONSYWNOŚĆ MOJA HISTORIA ===== */
-@media (max-width: 900px) {
-  .my-story {
-    padding: 40px 25px;
-  }
-
-  .my-story h2 {
-    font-size: 30px;
-  }
-
-  .story-box p {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 550px) {
-  .my-story {
-    padding: 35px 20px;
-  }
-
-  .my-story h2 {
-    font-size: 26px;
-  }
-
-  .story-box p {
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 900px) {
-  .story-images {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 550px) {
-  .story-images {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 600px) {
-  .gallery img {
-    width: calc(50% - 10px); /* 2 obok siebie z zachowaniem gap */
-  }
-}
-
-/* ===== MOBILE FIX ===== */
-@media (max-width: 768px) {
-  .offer {
-    display: grid;
-    grid-template-columns: 1fr; /* jedna kolumna na telefonie */
-    gap: 10px;
-    padding: 15px;
-    align-items: start; /* lepsze dopasowanie opisu */
-  }
-
-  .price {
-    text-align: left;
-  }
-
-  .offers {
-    max-width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-}
-
-@media (max-width: 480px) {
-  .offers h2 { font-size: 28px; }
-  .name { font-size: 16px; }
-  .desc { font-size: 14px; }
-  .who { font-size: 12px; }
-  .price { font-size: 16px; }
-}
-
-/* ===== RESPONSYWNOŚĆ – WSPÓŁPRACA ===== */
-
-@media (max-width: 900px) {
-  .steps {
-    padding: 40px 25px;
-  }
-
-  .steps h2 {
-    font-size: 30px;
-  }
-
-  .steps-box {
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-
-  .step {
-    padding: 25px;
-  }
-}
-
-@media (max-width: 550px) {
-  .steps {
-    padding: 35px 20px;
-  }
-
-  .steps h2 {
-    font-size: 26px;
-  }
-
-  .steps-box {
-    grid-template-columns: 1fr;
-  }
-
-  .step span {
-    width: 42px;
-    height: 42px;
-    font-size: 18px;
-  }
-
-  .step p {
-    font-size: 15px;
-  }
-}
-
-/* Responsywność FAQ*/
-@media (max-width: 768px) {
-  .faq-container {
-    padding: 20px;
-  }
-
-  .faq h2 {
-    font-size: 28px;
-  }
-
-  .faq-question {
-    font-size: 18px;
-  }
-
-  .faq-answer p {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .faq h2 {
-    font-size: 24px;
-  }
-
-  .faq-question {
-    font-size: 16px;
-  }
-
-  .faq-answer p {
-    font-size: 14px;
-  }
-}
-
-
-
-/* ===== TRYB CIEMNY ===== */
-@media (prefers-color-scheme: dark) {
-  /* Zmienne kolorów dla dark mode */
-  :root {
-    --bg-primary: #1A1A1A;       /* tło całej strony */
-    --bg-secondary: #2A2A2A;     /* tło sekcji */
-    --fg-primary: #eecc94;       /* tekst zwykły */
-    --accent: #eecc94;           /* nagłówki, przyciski, akcenty */
-    --offers-bg: #2A2A2A;        /* tło sekcji ofert */
-  }
-
-  /* HERO / logo */
-  .hero-logo {
-    filter: invert(65%) sepia(200%) saturate(100%) brightness(100%);
-  }
-
-   #zdrowe-nawyki .box {
-    background-color: #2A2A2A;
-    color: #eecc94;
-  }
-
-  /* logo prawy dolny */
-  .logo-fixed {
-  opacity: 0.2; 
-  filter: invert(100%) sepia(0%) saturate(0%) brightness(150%);
-
-}
-
-  /* Przyciski */
-  a.button {
-    background-color: var(--accent);
-    color: var(--bg-primary);
-  }
-
-  /* Linie dekoracyjne */
-  hr.section-divider {
-    border-top-color: var(--accent);
-  }
-
-  /* Sekcje */
-  body {
-    background-color: var(--bg-primary);
-    color: var(--fg-primary);
-  }
-
-  .about, .kontakt, .offers {
-    background-color: var(--bg-secondary);
-    color: var(--fg-primary);
-  }
-
-/* ===== MOJA HISTORIA ===== */
-
-.my-story {
-  background: var(--bg-secondary);   /* tło boxa w dark mode */
-}
-
-.my-story h2 {
-  color: var(--accent);             /* złoty nagłówek */
-}
-
-.story-box p {
-  color: var(--fg-primary);         /* tekst w kolorze złotym dla ciemnego tła */
-} 
-  /* WSPÓŁPRACA ZE MNĄ */
-
-.steps {
-  background: var(--bg-secondary);
-}
-
-.steps h2 {
-  color: var(--accent);
-}
-
-.step {
-  background: var(--bg-primary);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.6);
-}
-
-.step span {
-  background: #b02a2a;
-  color: var(--bg-primary);
-}
-
-.step p {
-  color: var(--fg-primary);
-}
-
-
-  /* Sekcja ofert – tło i teksty */
-  .offers {
-    background-color: var(--offers-bg);
-  }
-
-  .offers h2 {
-    color: var(--accent);
-  }
-
-  .offer .name,
-  .offer .price {
-    color: var(--accent);
-  }
-
-  .offer .desc,
-  .offer .who {
-    color: #ccc; /* delikatniejszy tekst w ciemnym trybie */
-  }
-
-  .site-footer {
-    background-color: #1a1a1a; /* ciemne tło */
-    color: #ccc;                /* jasnoszary tekst */
-  }
-
-  .footer-socials a {
-    color: #ccc;
-  }
-
-  .footer-socials a:hover {
-    color: #fff;
-  }
-}
-
-.faq {
-  padding: 40px 20px;
-  max-width: 1100px;
-  margin: auto;
-}
-
-.faq-container {
-  background-color: var(--bg-secondary);
-  border-radius: 24px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-  padding: 30px 40px;
-}
-
-.faq h2 {
-  color: var(--accent);
-  font-size: 36px;
-  margin-bottom: 30px;
-  text-align: left;
-}
-
-.faq-item {
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  padding: 15px 0;
-}
-
-.faq-question {
-  width: 100%;
-  text-align: left;
-  background: none;
-  border: none;
-  font-size: 20px;
-  font-weight: bold;
-  color: var(--fg-primary);
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0;
-  transition: color 0.3s;
-}
-
-.faq-question:hover {
-  color: var(--accent);
-}
-
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.4s ease;
-  padding-left: 10px;
-}
-
-.faq-answer p {
-  margin: 10px 0;
-  font-size: 18px;
-  color: var(--fg-primary);
-}
-
-.faq-item.active .faq-answer {
-  max-height: 500px;
-  padding-top: 10px;
-}
-
-/* strzałka */
-.arrow {
-  color: #b02a2a;
-  transition: transform 0.3s;
-}
-
-.faq-item.active .arrow {
-  transform: rotate(180deg);
-}
-
-/* ===== Responsywność ===== */
-@media (max-width: 768px) {
-  .faq-container {
-    padding: 20px;
-  }
-
-  .faq h2 {
-    font-size: 28px;
-  }
-
-  .faq-question {
-    font-size: 18px;
-  }
-
-  .faq-answer p {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .faq h2 {
-    font-size: 24px;
-  }
-
-  .faq-question {
-    font-size: 16px;
-  }
-
-  .faq-answer p {
-    font-size: 14px;
-  }
-}
-
+@media (max-width: 900px) { .about-content { gap: 30px; } }
+@media (max-width: 768px) { .about-content { flex-direction: column; gap: 20px; align-items: center; text-align: center; } .about-text { max-width: 100%; } .about-image img { max-width: 90%; } }
+@media (max-width: 480px) { .hero h1 { font-size: 36px; } .hero h2 { font-size: 24px; } .about-text p { font-size: 18px; } }
+
+/* ===== GALERIA RESPONSYWNA ===== */
+@media (max-width: 900px) { .story-images { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 600px) { .story-images { grid-template-columns: repeat(2,1fr); gap:10px; } .story-images img { max-height: 200px; } }
+@media (max-width: 400px) { .story-images { grid-template-columns: 1fr; } .story-images img { max-height: 180px; } }
+
+/* ===== MENU ROZWIJANE – KAFELKI + KRZYŻYK ===== */
 .menu-toggle {
-  position: fixed !important;
+  position: fixed;
   top: 20px;
   right: 20px;
   width: 40px;
@@ -912,79 +325,242 @@ body.dark .story-images img {
   flex-direction: column;
   justify-content: space-between;
   z-index: 2147483647;
+  cursor: pointer;
 }
 
 .menu-toggle span {
   height: 4px;
   width: 100%;
   background: var(--fg-primary);
-  border-radius:2px;
+  border-radius: 2px;
+  transition: all 0.4s ease;
 }
-/* ===== Wysuwane menu ===== */
+
+/* Krzyżyk po kliknięciu */
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* MENU – CAŁA KARTA */
 .mobile-menu {
   position: fixed;
   top: 0;
-  right: -320px; /* <- musi być minus ta sama szerokość */
+  right: -100%;
   width: 320px;
+  max-width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   padding: 80px 20px;
-  gap: 20px;
+  gap: 15px;
   transition: right 0.4s ease;
   z-index: 9999;
   overflow-y: auto;
+  background-color: var(--bg-secondary);
   box-sizing: border-box;
-  background-color: var(--bg-secondary); /* domyślnie */
 }
 
-.mobile-menu a {
-  position: static !important; /* upewniamy się że linki nie są absolutne */
-  display: block !important;
-  text-decoration: none;
-  font-size: 20px;
-  font-weight: 600;
-  padding: 10px 12px;
-  border-radius: 10px;
-  transition: background 0.3s, color 0.3s;
-  color: var(--fg-primary);
-}
-
-/* Wysunięcie menu */
+/* aktywne menu – wchodzi na ekran */
 .mobile-menu.active {
   right: 0;
 }
-@media (prefers-color-scheme: dark) {
-  .mobile-menu {
-    background: var(--bg-primary);
-  }
-  .mobile-menu a {
-    background: rgba(255,255,255,0.03);
-    color: var(--fg-primary);
-  }
-  .mobile-menu a:hover {
-    background: rgba(176,42,42,0.12);
-    color: var(--accent);
-  }
+
+/* Kafelki */
+.mobile-menu a {
+  display: block;
+  background-color: var(--bg-primary);
+  color: var(--fg-primary);
+  text-align: center;
+  padding: 15px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  transition: 0.3s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-@media (prefers-color-scheme: light) {
-  .mobile-menu {
-    background: var(--bg-primary);
-  }
-  .mobile-menu a {
-    background: var(--bg-secondary);
-    color: #333333;
-  }
-  .mobile-menu a:hover {
-    background: rgba(238, 203, 148, 0.471);
-    color: var(--accent);
-  }
+.mobile-menu a:hover {
+  background-color: var(--accent);
+  color: var(--bg-primary);
 }
 
-html {
-  scroll-behavior: smooth; /* płynne przewijanie */
-  scroll-padding-top: 80px; /* wysokość headera / hamburgera */
+/* DARK MODE */
+body.dark .menu-toggle span {
+  background: #eecc94;
+}
+
+body.dark .mobile-menu {
+  background-color: #2A2A2A;
+}
+
+body.dark .mobile-menu a {
+  background-color: #1A1A1A;
+  color: #eecc94;
+}
+
+body.dark .mobile-menu a:hover {
+  background-color: #b02a2a;
+  color: #FFFAE9;
+}
+
+
+/* ===== TRYB CIEMNY GLOBALNY ===== */
+body.dark {
+  background-color: #1A1A1A;      /* tło strony */
+  color: #eecc94;                  /* tekst główny */
+}
+
+/* Sekcje */
+body.dark .about,
+body.dark .my-story,
+body.dark .steps,
+body.dark .offers,
+body.dark .faq-container,
+body.dark .kontakt,
+body.dark .site-footer,
+body.dark .logo-fixed {
+  background-color: #2A2A2A;      /* tło sekcji */
+  color: #eecc94;                 /* tekst sekcji */
+}
+
+/* Nagłówki */
+body.dark h1,
+body.dark h2,
+body.dark h3 {
+  color: #eecc94;
+}
+
+/* Linki */
+body.dark a {
+  color: #eecc94;
+}
+
+/* Przyciski kontaktu – czerwone w ciemnym trybie */
+body.dark .kontakt a.button {
+  background-color: #b02a2a;
+  color: #FFFAE9;
+}
+
+/* Oferty – tło boxów i linie */
+body.dark .offer {
+  background-color: #2A2A2A;
+  color: #eecc94;
+  border-bottom: 2px solid #b02a2a; /* linie oddzielające w ciemnym trybie */
+}
+
+/* Linie między sekcjami */
+body.dark hr.section-divider {
+  border-top-color: #b02a2a;
+}
+
+/* ===== DARK MODE – HERO / SEKCJA Z LOGO ===== */
+body.dark .hero {
+  background: #1A1A1A;      /* tło całej sekcji */
+  color: #eecc94;           /* tekst nagłówków */
+}
+
+body.dark .hero h1,
+body.dark .hero h2 {
+  color: #eecc94;           /* nagłówki */
+}
+
+body.dark .hero-logo {
+  filter: invert(65%) sepia(200%) saturate(100%) brightness(100%);
+}
+
+/* dark mode */
+body.dark .logo-fixed {
+  opacity: 0.25;
+  background: transparent;
+  filter: invert(65%) sepia(200%) saturate(100%) brightness(100%);
+
+}
+
+/* DARK MODE – jasny tekst w opisach */
+body.dark .about-text p,
+body.dark .about-content p,
+body.dark .my-story p {
+  color: #eecc94; /* prawie biały */
+} 
+
+/* WSPÓŁPRACA ZE MNĄ – ciemniejszy kolor boxów */
+body.dark .step {
+  background-color: #1A1A1A; /* ciemniejszy odcień dla boxów */
+  color: #eecc94;            /* jasny tekst */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.6); /* opcjonalnie mocniejszy cień */
+}
+
+body.dark .step span {
+  background: #b02a2a; /* czerwone kółeczko numeru */
+  color: #fefcf4;       /* jasny numer */
+}
+
+body.dark .step p {
+  color: #eecc94;       /* jasny tekst opisów */
+}
+
+
+/* ===== FAQ – dark mode jednolity kolor ===== */
+body.dark .faq-question,
+body.dark .faq-answer p {
+  color: #eecc94; /* jasny tekst w ciemnym trybie */
+}
+
+body.dark .faq-question:hover {
+  color: var(--accent); /* hover może pozostać czerwony */
+}
+
+
+
+/* ===== OFERTY – dark mode poprawione ===== */
+body.dark .offer {
+  background-color: #2A2A2A; /* tło boxów */
+  border-color: #B91A1A;      /* czerwone linie między ofertami */
+}
+
+body.dark .offer .name,
+body.dark .offer .price {
+  color: #eecc94;             /* jasny złoty */
+}
+
+body.dark .offer .desc,
+body.dark .offer .who {
+  color: #fefcf4;             /* prawie biały dla opisów */
+}
+
+
+/* ===== STOPKA ===== */
+body.dark .site-footer {
+  background-color: #1A1A1A; /* takie samo jak sekcje */
+  color: #eecc94;             /* jasny tekst */
+}
+
+/* ===== GUZIK TRYBÓW ===== */
+.theme-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: #b02a2a;      /* kolor kropki w jasnym trybie */
+  font-size: 40px;      /* mniejszy rozmiar */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 9999;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+body.dark .theme-toggle {
+  color: #eecc94;       /* kolor kropki w ciemnym trybie */
 }
 
 

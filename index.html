@@ -16,6 +16,10 @@
 </head>
 <body>
 
+  <!-- Toggle trybu -->
+<div id="theme-toggle" class="theme-toggle">🌙</div>
+
+
 <!-- Hamburger -->
 <div class="menu-toggle">
   <span></span>
@@ -283,7 +287,30 @@ document.querySelectorAll('.mobile-menu a').forEach(link => {
 </script>
 
 
+<script>
+const toggleBtn = document.getElementById('theme-toggle');
+const body = document.body;
 
+// wczytaj zapisany tryb
+if(localStorage.getItem('theme') === 'dark'){
+  body.classList.add('dark');
+  toggleBtn.textContent = '●'; // jeśli dark, pełne kółko
+} else {
+  toggleBtn.textContent = '○'; // jeśli light, puste kółko
+}
+
+// kliknięcie przełącznika
+toggleBtn.addEventListener('click', () => {
+  body.classList.toggle('dark');
+  if(body.classList.contains('dark')){
+    toggleBtn.textContent = '●';
+    localStorage.setItem('theme','dark');
+  } else {
+    toggleBtn.textContent = '○';
+    localStorage.setItem('theme','light');
+  }
+});
+</script>
 
   
 </body>
